@@ -1,0 +1,9 @@
+{
+  "domain": "wigle_stats",
+  "name": "Wigle Stats",
+  "version": "1.0.0",
+  "documentation": "https://github.com/elieduclr/Wigle-Stats-HACS",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@elieduclr"]
+}

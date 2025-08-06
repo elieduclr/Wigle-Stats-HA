@@ -1,0 +1,6 @@
+{
+  "name": "Wigle Stats",
+  "content_in_root": false,
+  "domains": ["sensor"],
+  "country": "fr"
+}
