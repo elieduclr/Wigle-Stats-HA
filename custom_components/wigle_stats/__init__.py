@@ -9,6 +9,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_USERNAME, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 from .const import DOMAIN, CONF_API_NAME, CONF_API_TOKEN
@@ -28,7 +29,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         username=entry.data[CONF_USERNAME],
         api_name=entry.data[CONF_API_NAME],
         api_token=entry.data[CONF_API_TOKEN],
-        session=hass.helpers.aiohttp_client.async_get_clientsession()
+        session=async_get_clientsession(hass)
     )
     
     async def async_update_data():
