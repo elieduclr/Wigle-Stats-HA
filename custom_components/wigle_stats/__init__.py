@@ -6,12 +6,12 @@ from datetime import timedelta
 import logging
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_API_KEY, CONF_USERNAME, Platform
+from homeassistant.const import CONF_USERNAME, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from .const import DOMAIN
+from .const import DOMAIN, CONF_API_NAME, CONF_API_TOKEN
 from .wigle_api import WigleAPI
 
 _LOGGER = logging.getLogger(__name__)
@@ -26,7 +26,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     
     wigle_api = WigleAPI(
         username=entry.data[CONF_USERNAME],
-        api_key=entry.data[CONF_API_KEY],
+        api_name=entry.data[CONF_API_NAME],
+        api_token=entry.data[CONF_API_TOKEN],
         session=hass.helpers.aiohttp_client.async_get_clientsession()
     )
     

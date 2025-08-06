@@ -37,13 +37,16 @@ Cette intégration permet de récupérer les statistiques de votre compte Wigle.
    - Rechercher "Wigle WiFi Network Statistics"
    - Entrer vos identifiants :
      - **Username** : Votre nom d'utilisateur Wigle
-     - **API Key** : Votre clé API Wigle (format : AID...)
+     - **API Name** : Votre API Name Wigle (format : AID...)
+     - **API Token** : Votre API Token Wigle
 
-## Obtenir votre clé API Wigle
+## Obtenir vos identifiants API Wigle
 
 1. Connectez-vous sur [wigle.net](https://wigle.net)
 2. Allez dans votre profil → "Account" → "API"
-3. Copiez votre "Encoded for use" qui ressemble à : `AID5441982d0acf37424dd7d553139928ae`
+3. Notez vos identifiants :
+   - **API Name** : `AID563546473627162717d553139928ae`
+   - **API Token** : `8b1614a79cdgbz63gd6263406e29e677`
 
 ## Structure des fichiers
 
@@ -88,8 +91,9 @@ Chaque capteur inclut des attributs supplémentaires :
 ## Dépannage
 
 ### Erreur d'authentification
-- Vérifiez que votre nom d'utilisateur et clé API sont corrects
+- Vérifiez que votre nom d'utilisateur, API Name et API Token sont corrects
 - Assurez-vous que l'API est activée sur votre compte Wigle
+- L'API Name doit commencer par "AID" suivi de caractères alphanumériques
 
 ### Pas de données
 - L'intégration met à jour les données toutes les heures

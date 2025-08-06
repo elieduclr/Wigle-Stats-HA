@@ -15,16 +15,17 @@ _LOGGER = logging.getLogger(__name__)
 class WigleAPI:
     """Wigle API client."""
     
-    def __init__(self, username: str, api_key: str, session: aiohttp.ClientSession):
+    def __init__(self, username: str, api_name: str, api_token: str, session: aiohttp.ClientSession):
         """Initialize the API client."""
         self.username = username
-        self.api_key = api_key
+        self.api_name = api_name
+        self.api_token = api_token
         self.session = session
-        self._auth_header = self._create_auth_header(username, api_key)
+        self._auth_header = self._create_auth_header(api_name, api_token)
     
-    def _create_auth_header(self, username: str, api_key: str) -> str:
-        """Create basic auth header."""
-        credentials = f"{username}:{api_key}"
+    def _create_auth_header(self, api_name: str, api_token: str) -> str:
+        """Create basic auth header using API Name and API Token."""
+        credentials = f"{api_name}:{api_token}"
         encoded_credentials = base64.b64encode(credentials.encode()).decode()
         return f"Basic {encoded_credentials}"
     

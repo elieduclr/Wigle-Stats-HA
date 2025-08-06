@@ -7,13 +7,13 @@ from typing import Any
 import voluptuous as vol
 
 from homeassistant import config_entries
-from homeassistant.const import CONF_API_KEY, CONF_USERNAME
+from homeassistant.const import CONF_USERNAME
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
 import homeassistant.helpers.config_validation as cv
 
-from .const import DOMAIN
+from .const import DOMAIN, CONF_API_NAME, CONF_API_TOKEN
 from .wigle_api import WigleAPI
 
 _LOGGER = logging.getLogger(__name__)
@@ -21,7 +21,8 @@ _LOGGER = logging.getLogger(__name__)
 STEP_USER_DATA_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_USERNAME): cv.string,
-        vol.Required(CONF_API_KEY): cv.string,
+        vol.Required(CONF_API_NAME): cv.string,
+        vol.Required(CONF_API_TOKEN): cv.string,
     }
 )
 
@@ -32,7 +33,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     Data has the keys from STEP_USER_DATA_SCHEMA with values provided by the user.
     """
     session = hass.helpers.aiohttp_client.async_get_clientsession()
-    api = WigleAPI(data[CONF_USERNAME], data[CONF_API_KEY], session)
+    api = WigleAPI(data[CONF_USERNAME], data[CONF_API_NAME], data[CONF_API_TOKEN], session)
     
     if not await api.test_connection():
         raise InvalidAuth

@@ -3,6 +3,7 @@
 DOMAIN = "wigle"
 
 # Configuration
+CONF_API_NAME = "api_name"
 CONF_API_TOKEN = "api_token"
 
 # API Constants

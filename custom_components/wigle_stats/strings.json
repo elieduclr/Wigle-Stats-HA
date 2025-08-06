@@ -6,7 +6,8 @@
         "description": "Enter your Wigle.net credentials to access your WiFi network statistics.",
         "data": {
           "username": "Username",
-          "api_key": "API Key"
+          "api_name": "API Name (AID...)",
+          "api_token": "API Token"
         }
       }
     },
