@@ -1,9 +1,12 @@
 {
-  "domain": "wigle_stats",
-  "name": "Wigle Stats",
+  "domain": "wigle",
+  "name": "Wigle WiFi Network Statistics",
   "version": "1.0.0",
   "documentation": "https://github.com/elieduclr/Wigle-Stats-HACS",
-  "requirements": [],
+  "issue_tracker": "https://github.com/elieduclr/Wigle-Stats-HACS/issues",
   "dependencies": [],
-  "codeowners": ["@elieduclr"]
+  "codeowners": ["@elieduclr"],
+  "requirements": ["aiohttp>=3.8.0"],
+  "config_flow": true,
+  "iot_class": "cloud_polling"
 }

@@ -1,0 +1,30 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi Network Statistics",
+        "description": "Enter your Wigle.net credentials to access your WiFi network statistics.",
+        "data": {
+          "username": "Username",
+          "api_key": "API Key"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Wigle API",
+      "invalid_auth": "Invalid authentication credentials",
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "Account is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi Network Statistics Options",
+        "description": "Configure options for your Wigle integration."
+      }
+    }
+  }
+}
