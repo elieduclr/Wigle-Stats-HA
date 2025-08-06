@@ -39,13 +39,13 @@ SENSOR_TYPES = {
     },
     "discovered_cell_gps": {
         "name": "Cell Towers with GPS",
-        "icon": "mdi:cell-phone-wireless",
+        "icon": "mdi:cellphone-nfc",
         "unit": "towers",
         "device_class": None,
     },
     "discovered_cell": {
         "name": "Cell Towers Discovered",
-        "icon": "mdi:cell-phone-wireless", 
+        "icon": "mdi:cellphone-nfc", 
         "unit": "towers",
         "device_class": None,
     },

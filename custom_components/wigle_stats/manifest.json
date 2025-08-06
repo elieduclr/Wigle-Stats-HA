@@ -1,7 +1,7 @@
 {
   "domain": "wigle",
   "name": "Wigle WiFi Network Statistics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "documentation": "https://github.com/elieduclr/Wigle-Stats-HACS",
   "issue_tracker": "https://github.com/elieduclr/Wigle-Stats-HACS/issues",
   "dependencies": [],

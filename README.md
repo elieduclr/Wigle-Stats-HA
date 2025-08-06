@@ -1,118 +1,220 @@
-# Wigle WiFi Network Statistics Integration for Home Assistant
+# 📡 Wigle WiFi Network Statistics Integration for Home Assistant
 
-Cette intégration permet de récupérer les statistiques de votre compte Wigle.net directement dans Home Assistant.
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+[![GitHub release](https://img.shields.io/github/release/yourusername/hass-wigle.svg)](https://github.com/elieduclr/Wigle-Stats-HACS/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Fonctionnalités
+Une intégration Home Assistant pour récupérer les statistiques de découverte WiFi, Bluetooth et cellulaire de votre compte [Wigle.net](https://wigle.net) 🌐
 
-- **Rang global** et **rang mensuel**
-- **Réseaux WiFi découverts** (avec et sans GPS)
-- **Tours de téléphonie** découvertes (avec et sans GPS)  
-- **Appareils Bluetooth** découverts (avec et sans GPS)
-- **Total des emplacements WiFi**
-- Attributs supplémentaires incluant l'évolution des rangs et les dates d'activité
+## ✨ Fonctionnalités
 
-## Installation via HACS
+Cette intégration vous permet de suivre vos performances de wardriving directement dans Home Assistant :
 
-### Prérequis
-- Home Assistant 2023.1.0 ou plus récent
-- HACS installé
-- Compte Wigle.net avec API activée
+- 🏆 **Classements** : Rang global et mensuel dans la communauté Wigle
+- 📶 **Réseaux WiFi** : Nombre de réseaux découverts (avec/sans coordonnées GPS)
+- 📱 **Tours cellulaires** : Antennes découvertes lors de vos déplacements
+- 🔵 **Appareils Bluetooth** : Devices BLE détectés avec géolocalisation
+- 📍 **Géolocalisation** : Suivi des emplacements WiFi mappés
+- 📈 **Évolution** : Historique des rangs et progression mensuelle
+- ⏰ **Activité** : Dates de première et dernière contribution
 
-### Étapes d'installation
+## 🚀 Installation
 
-1. **Ajouter le repository personnalisé dans HACS :**
-   - Aller dans HACS → Intégrations
-   - Cliquer sur les trois points en haut à droite → "Custom repositories"
-   - Ajouter l'URL de votre repository GitHub
-   - Choisir la catégorie "Integration"
+### Option 1 : Installation via HACS (Recommandé)
 
-2. **Installer l'intégration :**
-   - Rechercher "Wigle WiFi Network Statistics"
-   - Cliquer sur "Download"
-   - Redémarrer Home Assistant
+#### 📋 Prérequis
+- ✅ Home Assistant 2023.1.0 ou plus récent
+- ✅ [HACS](https://hacs.xyz/) installé et configuré
+- ✅ Compte [Wigle.net](https://wigle.net) avec API activée
 
-3. **Configuration :**
-   - Aller dans Configuration → Intégrations
-   - Cliquer sur "Ajouter une intégration"
-   - Rechercher "Wigle WiFi Network Statistics"
-   - Entrer vos identifiants :
-     - **Username** : Votre nom d'utilisateur Wigle
-     - **API Name** : Votre API Name Wigle (format : AID...)
-     - **API Token** : Votre API Token Wigle
+#### 🔧 Étapes d'installation HACS
 
-## Obtenir vos identifiants API Wigle
+1. **📁 Ajouter le repository personnalisé :**
+   - Ouvrir HACS → Intégrations
+   - Cliquer sur `⋮` (trois points) → `Dépôts personnalisés`
+   - Ajouter l'URL : `https://github.com/elieduclr/Wigle-Stats-HACS`
+   - Catégorie : `Intégration`
+   - Cliquer sur `AJOUTER`
 
-1. Connectez-vous sur [wigle.net](https://wigle.net)
-2. Allez dans votre profil → "Account" → "API"
-3. Notez vos identifiants :
-   - **API Name** : `AID563546473627162717d553139928ae`
-   - **API Token** : `8b1614a79cdgbz63gd6263406e29e677`
+2. **💾 Installer l'intégration :**
+   - Dans HACS → Intégrations, rechercher `Wigle WiFi Network Statistics`
+   - Cliquer sur `TÉLÉCHARGER`
+   - Redémarrer Home Assistant 🔄
 
-## Structure des fichiers
+3. **⚙️ Configuration :**
+   - Aller dans `Configuration` → `Intégrations`
+   - Cliquer sur `+ AJOUTER UNE INTÉGRATION`
+   - Rechercher `Wigle WiFi Network Statistics`
+   - Entrer vos identifiants (voir section API ci-dessous)
 
-Créer le dossier `custom_components/wigle/` dans votre configuration Home Assistant et y placer tous les fichiers Python.
+### Option 2 : Installation manuelle
+
+#### 📂 Structure des fichiers
+
+Télécharger tous les fichiers et créer cette structure dans votre configuration Home Assistant :
 
 ```
-custom_components/
-└── wigle/
-    ├── __init__.py
-    ├── manifest.json
-    ├── const.py
-    ├── wigle_api.py
-    ├── config_flow.py
-    ├── sensor.py
-    └── strings.json
+config/
+└── custom_components/
+    └── wigle/
+        ├── __init__.py
+        ├── manifest.json
+        ├── const.py
+        ├── wigle_api.py
+        ├── config_flow.py
+        ├── sensor.py
+        └── strings.json
 ```
 
-## Capteurs disponibles
+#### 🔄 Après installation manuelle
 
-L'intégration crée automatiquement les capteurs suivants :
+1. **Redémarrer Home Assistant**
+2. **Vider le cache du navigateur** (Ctrl+F5)
+3. **Ajouter l'intégration** via `Configuration` → `Intégrations`
 
-- `sensor.wigle_rank` - Votre rang global
-- `sensor.wigle_monthly_rank` - Votre rang mensuel  
-- `sensor.wigle_wifi_networks_with_gps` - Réseaux WiFi avec coordonnées GPS
-- `sensor.wigle_wifi_networks_discovered` - Total réseaux WiFi découverts
-- `sensor.wigle_cell_towers_with_gps` - Tours cellulaires avec GPS
-- `sensor.wigle_cell_towers_discovered` - Total tours cellulaires découvertes
-- `sensor.wigle_bluetooth_devices_with_gps` - Appareils Bluetooth avec GPS  
-- `sensor.wigle_bluetooth_devices_discovered` - Total appareils Bluetooth découverts
-- `sensor.wigle_total_wifi_locations` - Total des emplacements WiFi
+## 🔑 Obtenir vos identifiants API Wigle
 
-## Attributs disponibles
+Pour utiliser cette intégration, vous avez besoin de vos identifiants API Wigle :
 
-Chaque capteur inclut des attributs supplémentaires :
+1. **🌐 Connectez-vous** sur [wigle.net](https://wigle.net)
+2. **👤 Accédez à votre profil** → `Account` → `API`
+3. **📝 Notez vos identifiants** :
+   - **API Name** : `AID54419563fgdh63hdd7d553139928ae`
+   - **API Token** : `8b1614a79cbdh76b5d87cb606e29e677`
+
+> ⚠️ **Important** : Gardez ces identifiants confidentiels !
+
+## ⚙️ Configuration dans Home Assistant
+
+Lors de l'ajout de l'intégration, vous devrez saisir :
+
+| Champ | Valeur | Exemple |
+|-------|--------|---------|
+| **Username** | Votre nom d'utilisateur Wigle | `malic1tus` |
+| **API Name** | Votre API Name (commence par AID) | `AID54419563fgdh63hdd7d553139928ae` |
+| **API Token** | Votre token API | `8b1614a79cbdh76b5d87cb606e29e677` |
+
+## 📊 Capteurs disponibles
+
+L'intégration crée automatiquement **9 capteurs** avec toutes vos statistiques :
+
+| Capteur | Description | Icône |
+|---------|-------------|-------|
+| `sensor.wigle_rank` | 🏆 Votre rang global | `mdi:trophy` |
+| `sensor.wigle_monthly_rank` | 📅 Votre rang mensuel | `mdi:trophy-outline` |
+| `sensor.wigle_wifi_networks_with_gps` | 📶 WiFi avec coordonnées GPS | `mdi:wifi` |
+| `sensor.wigle_wifi_networks_discovered` | 📡 Total réseaux WiFi découverts | `mdi:wifi` |
+| `sensor.wigle_cell_towers_with_gps` | 📱 Tours cellulaires avec GPS | `mdi:cellphone-nfc` |
+| `sensor.wigle_cell_towers_discovered` | 🏗️ Total tours cellulaires découvertes | `mdi:cellphone-nfc` |
+| `sensor.wigle_bluetooth_devices_with_gps` | 🔵 Bluetooth avec GPS | `mdi:bluetooth` |
+| `sensor.wigle_bluetooth_devices_discovered` | 📻 Total appareils Bluetooth | `mdi:bluetooth` |
+| `sensor.wigle_total_wifi_locations` | 📍 Total emplacements WiFi | `mdi:map-marker-multiple` |
+
+## 📋 Attributs supplémentaires
+
+Chaque capteur inclut des **attributs détaillés** :
+
+### 🏆 Capteurs de rang
+- `previous_rank` - Rang précédent
+- `rank_change` - Évolution du rang (+ = progression, - = régression)
+- `previous_month_rank` - Rang mensuel précédent
+- `month_rank_change` - Évolution mensuelle
+
+### 📊 Tous les capteurs
 - `username` - Nom d'utilisateur Wigle
-- `wifi_gps_percentage` - Pourcentage de réseaux WiFi avec GPS
-- `previous_rank` - Rang précédent (pour le capteur rank)
-- `rank_change` - Évolution du rang 
-- `first_activity` - Date de première activité
+- `wifi_gps_percentage` - Pourcentage de WiFi avec GPS
+- `first_activity` - Date de première activité (format: `YYYYMMDD-NNNNN`)
 - `last_activity` - Date de dernière activité
 
-## Dépannage
+## 🎨 Exemple de dashboard
 
-### Erreur d'authentification
-- Vérifiez que votre nom d'utilisateur, API Name et API Token sont corrects
-- Assurez-vous que l'API est activée sur votre compte Wigle
-- L'API Name doit commencer par "AID" suivi de caractères alphanumériques
+Voici un exemple de carte Lovelace pour afficher vos statistiques :
 
-### Pas de données
-- L'intégration met à jour les données toutes les heures
-- Vérifiez les logs de Home Assistant pour les erreurs
+```yaml
+type: entities
+title: 📡 Statistiques Wigle
+entities:
+  - entity: sensor.wigle_rank
+    name: 🏆 Rang global
+    secondary_info: attribute
+    attribute: rank_change
+  - entity: sensor.wigle_monthly_rank
+    name: 📅 Rang mensuel
+  - entity: sensor.wigle_wifi_networks_discovered
+    name: 📶 Réseaux WiFi
+  - entity: sensor.wigle_bluetooth_devices_discovered
+    name: 🔵 Appareils Bluetooth
+  - entity: sensor.wigle_cell_towers_discovered
+    name: 📱 Tours cellulaires
+```
 
-### Limitation de l'API
-- Wigle limite les requêtes API
-- L'intégration respecte un intervalle d'une heure entre les mises à jour
+## 🔄 Mise à jour des données
 
-## Développement
+- **Fréquence** : Toutes les heures (les données Wigle changent peu)
+- **Limite API** : Respecte les limites de taux de Wigle
+- **Reconnexion automatique** : En cas d'erreur temporaire
 
-Pour contribuer au développement :
+## 🛠️ Dépannage
 
-1. Fork le repository
-2. Créer une branche pour votre fonctionnalité
-3. Faire vos modifications
-4. Tester avec Home Assistant
-5. Soumettre une pull request
+### ❌ Erreur d'authentification
+- ✅ Vérifiez que votre **username**, **API Name** et **API Token** sont corrects
+- ✅ Assurez-vous que l'**API est activée** sur votre compte Wigle
+- ✅ L'**API Name** doit commencer par `AID` suivi de caractères alphanumériques
+- ✅ Testez avec curl : 
+  ```bash
+  curl -u AID...:TOKEN... https://api.wigle.net/api/v2/profile/user
+  ```
 
-## Licence
+### 📊 Pas de données
+- ⏰ L'intégration met à jour les données **toutes les heures**
+- 🔍 Vérifiez les **logs** de Home Assistant pour les erreurs :
+  ```
+  Paramètres → Système → Journaux
+  ```
 
-Ce projet est sous licence MIT.
+### 🚫 Limitation de l'API
+- ⚠️ Wigle limite les requêtes API par utilisateur
+- ⏱️ L'intégration respecte un **intervalle d'une heure** entre mises à jour
+- 🔄 Patience, les données se mettront à jour automatiquement
+
+### 🔧 Problèmes courants
+
+| Problème | Solution |
+|----------|----------|
+| Intégration ne s'affiche pas | Redémarrer HA et vider le cache navigateur |
+| Erreur "cannot_connect" | Vérifier la connectivité Internet |
+| Erreur "unknown" | Consulter les logs détaillés |
+
+## 🤝 Contribution et développement
+
+Vous souhaitez contribuer ? C'est fantastique ! 🎉
+
+### 🔧 Environnement de développement
+
+1. **Fork** le repository
+2. **Cloner** votre fork
+3. **Créer** une branche pour votre fonctionnalité
+4. **Tester** avec Home Assistant
+5. **Soumettre** une pull request
+
+### 🐛 Signaler un bug
+
+Utilisez les [GitHub Issues](https://github.com/elieduclr/Wigle-Stats-HACS/issues) avec :
+- ✅ Version de Home Assistant
+- ✅ Version de l'intégration
+- ✅ Logs d'erreur complets
+- ✅ Étapes pour reproduire
+
+## 📄 Licence
+
+Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## 🙏 Remerciements
+
+- 🌟 [Wigle.net](https://wigle.net) pour leur formidable API
+- 🏠 La communauté [Home Assistant](https://www.home-assistant.io/) 
+- 📊 Tous les wardrivers qui contribuent à cartographier les réseaux !
+
+---
+
+**⭐ Si cette intégration vous plaît, n'hésitez pas à lui donner une étoile sur GitHub !**
