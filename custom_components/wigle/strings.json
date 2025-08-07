@@ -58,17 +58,5 @@
         "name": "Total WiFi Locations"
       }
     }
-  },
-  "state_attributes": {
-    "wigle": {
-      "username": "Username",
-      "wifi_gps_percentage": "WiFi GPS Percentage",
-      "previous_rank": "Previous Rank",
-      "rank_change": "Rank Change",
-      "previous_month_rank": "Previous Month Rank",
-      "month_rank_change": "Month Rank Change",
-      "first_activity": "First Activity",
-      "last_activity": "Last Activity"
-    }
   }
 }

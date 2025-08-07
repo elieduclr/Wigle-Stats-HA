@@ -58,17 +58,5 @@
         "name": "WiFi-Standorte gesamt"
       }
     }
-  },
-  "state_attributes": {
-    "wigle": {
-      "username": "Benutzername",
-      "wifi_gps_percentage": "WiFi-GPS-Prozentsatz",
-      "previous_rank": "Vorheriger Rang",
-      "rank_change": "Rangänderung",
-      "previous_month_rank": "Vorheriger Monatsrang",
-      "month_rank_change": "Monatsrangänderung",
-      "first_activity": "Erste Aktivität",
-      "last_activity": "Letzte Aktivität"
-    }
   }
 }

@@ -58,17 +58,5 @@
         "name": "Total emplacements WiFi"
       }
     }
-  },
-  "state_attributes": {
-    "wigle": {
-      "username": "Nom d'utilisateur",
-      "wifi_gps_percentage": "Pourcentage WiFi GPS",
-      "previous_rank": "Rang précédent",
-      "rank_change": "Évolution du rang",
-      "previous_month_rank": "Rang du mois précédent",
-      "month_rank_change": "Évolution du rang mensuel",
-      "first_activity": "Première activité",
-      "last_activity": "Dernière activité"
-    }
   }
 }
