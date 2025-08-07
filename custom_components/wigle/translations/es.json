@@ -1,0 +1,74 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Estadísticas de redes WiFi Wigle",
+        "description": "Ingresa tus credenciales de Wigle.net para acceder a las estadísticas de tus redes WiFi.",
+        "data": {
+          "username": "Nombre de usuario",
+          "api_name": "Nombre de API (AID...)",
+          "api_token": "Token de API"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Error al conectar con la API de Wigle",
+      "invalid_auth": "Credenciales de autenticación inválidas",
+      "unknown": "Ocurrió un error inesperado"
+    },
+    "abort": {
+      "already_configured": "La cuenta ya está configurada"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opciones de estadísticas Wigle WiFi",
+        "description": "Configura las opciones para tu integración Wigle."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": {
+        "name": "Rango"
+      },
+      "month_rank": {
+        "name": "Rango mensual"
+      },
+      "discovered_wifi_gps": {
+        "name": "Redes WiFi con GPS"
+      },
+      "discovered_wifi": {
+        "name": "Redes WiFi descubiertas"
+      },
+      "discovered_cell_gps": {
+        "name": "Torres celulares con GPS"
+      },
+      "discovered_cell": {
+        "name": "Torres celulares descubiertas"
+      },
+      "discovered_bt_gps": {
+        "name": "Dispositivos Bluetooth con GPS"
+      },
+      "discovered_bt": {
+        "name": "Dispositivos Bluetooth descubiertos"
+      },
+      "total_wifi_locations": {
+        "name": "Total ubicaciones WiFi"
+      }
+    }
+  },
+  "state_attributes": {
+    "wigle": {
+      "username": "Nombre de usuario",
+      "wifi_gps_percentage": "Porcentaje WiFi GPS",
+      "previous_rank": "Rango anterior",
+      "rank_change": "Cambio de rango",
+      "previous_month_rank": "Rango del mes anterior",
+      "month_rank_change": "Cambio de rango mensual",
+      "first_activity": "Primera actividad",
+      "last_activity": "Última actividad"
+    }
+  }
+}

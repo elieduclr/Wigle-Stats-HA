@@ -11,58 +11,58 @@ WIGLE_API_BASE = "https://api.wigle.net/api/v2"
 WIGLE_USER_STATS_ENDPOINT = "/stats/user"
 WIGLE_PROFILE_ENDPOINT = "/profile/user"
 
-# Sensor Types
+# Sensor Types - Keys will be translated via strings.json
 SENSOR_TYPES = {
     "rank": {
-        "name": "Rank",
+        "translation_key": "rank",
         "icon": "mdi:trophy",
         "unit": None,
         "device_class": None,
     },
     "month_rank": {
-        "name": "Monthly Rank",
+        "translation_key": "month_rank",
         "icon": "mdi:trophy-outline",
         "unit": None,
         "device_class": None,
     },
     "discovered_wifi_gps": {
-        "name": "WiFi Networks with GPS",
+        "translation_key": "discovered_wifi_gps",
         "icon": "mdi:wifi",
         "unit": "networks",
         "device_class": None,
     },
     "discovered_wifi": {
-        "name": "WiFi Networks Discovered",
+        "translation_key": "discovered_wifi",
         "icon": "mdi:wifi",
         "unit": "networks", 
         "device_class": None,
     },
     "discovered_cell_gps": {
-        "name": "Cell Towers with GPS",
-        "icon": "mdi:cellphone-nfc",
+        "translation_key": "discovered_cell_gps",
+        "icon": "mdi:cell-phone-wireless",
         "unit": "towers",
         "device_class": None,
     },
     "discovered_cell": {
-        "name": "Cell Towers Discovered",
-        "icon": "mdi:cellphone-nfc", 
+        "translation_key": "discovered_cell",
+        "icon": "mdi:cell-phone-wireless", 
         "unit": "towers",
         "device_class": None,
     },
     "discovered_bt_gps": {
-        "name": "Bluetooth Devices with GPS",
+        "translation_key": "discovered_bt_gps",
         "icon": "mdi:bluetooth",
         "unit": "devices",
         "device_class": None,
     },
     "discovered_bt": {
-        "name": "Bluetooth Devices Discovered", 
+        "translation_key": "discovered_bt",
         "icon": "mdi:bluetooth",
         "unit": "devices",
         "device_class": None,
     },
     "total_wifi_locations": {
-        "name": "Total WiFi Locations",
+        "translation_key": "total_wifi_locations",
         "icon": "mdi:map-marker-multiple",
         "unit": "locations",
         "device_class": None,
