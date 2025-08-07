@@ -27,5 +27,36 @@
         "description": "Configure options for your Wigle integration."
       }
     }
+  },
+  "entity": {
+    "sensor": {
+      "rank": {
+        "name": "Rank"
+      },
+      "month_rank": {
+        "name": "Monthly Rank"
+      },
+      "discovered_wifi_gps": {
+        "name": "WiFi Networks with GPS"
+      },
+      "discovered_wifi": {
+        "name": "WiFi Networks Discovered"
+      },
+      "discovered_cell_gps": {
+        "name": "Cell Towers with GPS"
+      },
+      "discovered_cell": {
+        "name": "Cell Towers Discovered"
+      },
+      "discovered_bt_gps": {
+        "name": "Bluetooth Devices with GPS"
+      },
+      "discovered_bt": {
+        "name": "Bluetooth Devices Discovered"
+      },
+      "total_wifi_locations": {
+        "name": "Total WiFi Locations"
+      }
+    }
   }
 }

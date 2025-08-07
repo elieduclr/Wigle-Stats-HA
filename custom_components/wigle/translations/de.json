@@ -1,0 +1,62 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi-Netzwerk-Statistiken",
+        "description": "Geben Sie Ihre Wigle.net-Anmeldedaten ein, um auf Ihre WiFi-Netzwerk-Statistiken zuzugreifen.",
+        "data": {
+          "username": "Benutzername",
+          "api_name": "API-Name (AID...)",
+          "api_token": "API-Token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zur Wigle-API fehlgeschlagen",
+      "invalid_auth": "Ungültige Authentifizierungsdaten",
+      "unknown": "Unerwarteter Fehler aufgetreten"
+    },
+    "abort": {
+      "already_configured": "Konto ist bereits konfiguriert"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi-Statistik-Optionen",
+        "description": "Konfigurieren Sie Optionen für Ihre Wigle-Integration."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": {
+        "name": "Rang"
+      },
+      "month_rank": {
+        "name": "Monatsrang"
+      },
+      "discovered_wifi_gps": {
+        "name": "WiFi-Netzwerke mit GPS"
+      },
+      "discovered_wifi": {
+        "name": "WiFi-Netzwerke entdeckt"
+      },
+      "discovered_cell_gps": {
+        "name": "Mobilfunktürme mit GPS"
+      },
+      "discovered_cell": {
+        "name": "Mobilfunktürme entdeckt"
+      },
+      "discovered_bt_gps": {
+        "name": "Bluetooth-Geräte mit GPS"
+      },
+      "discovered_bt": {
+        "name": "Bluetooth-Geräte entdeckt"
+      },
+      "total_wifi_locations": {
+        "name": "WiFi-Standorte gesamt"
+      }
+    }
+  }
+}

@@ -60,11 +60,16 @@ class WigleSensor(CoordinatorEntity, SensorEntity):
         self._sensor_key = sensor_key
         self._sensor_config = sensor_config
         self._username = username
-        self._attr_name = f"Wigle {sensor_config['name']}"
+        
+        # Use translation key for the entity name
+        self._attr_translation_key = sensor_config["translation_key"]
         self._attr_unique_id = f"wigle_{username}_{sensor_key}"
         self._attr_icon = sensor_config["icon"]
         self._attr_native_unit_of_measurement = sensor_config["unit"]
         self._attr_device_class = sensor_config["device_class"]
+        
+        # Set has_entity_name to True to use translation system
+        self._attr_has_entity_name = True
 
     @property
     def device_info(self) -> dict[str, Any]:
