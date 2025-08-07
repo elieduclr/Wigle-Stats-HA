@@ -1,7 +1,7 @@
 # 📡 Wigle WiFi Network Statistics Integration for Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![GitHub release](https://img.shields.io/github/release/yourusername/hass-wigle.svg)](https://github.com/elieduclr/Wigle-Stats-HACS/releases)
+[![GitHub release](https://img.shields.io/github/release/elieduclr/Wigle-Stats-HACS.svg)](https://github.com/elieduclr/Wigle-Stats-HACS/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Une intégration Home Assistant pour récupérer les statistiques de découverte WiFi, Bluetooth et cellulaire de votre compte [Wigle.net](https://wigle.net) 🌐
