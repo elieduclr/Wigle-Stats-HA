@@ -1,0 +1,44 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Estatísticas de redes WiFi Wigle",
+        "description": "Insira suas credenciais do Wigle.net para acessar as estatísticas das suas redes WiFi.",
+        "data": {
+          "username": "Nome de usuário",
+          "api_name": "Nome da API (AID...)",
+          "api_token": "Token da API"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Falha ao conectar à API Wigle",
+      "invalid_auth": "Credenciais de autenticação inválidas",
+      "unknown": "Ocorreu um erro inesperado"
+    },
+    "abort": {
+      "already_configured": "A conta já está configurada"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opções das estatísticas Wigle WiFi",
+        "description": "Configure as opções para sua integração Wigle."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "Classificação" },
+      "month_rank": { "name": "Classificação mensal" },
+      "discovered_wifi_gps": { "name": "Redes WiFi com GPS" },
+      "discovered_wifi": { "name": "Redes WiFi descobertas" },
+      "discovered_cell_gps": { "name": "Torres de celular com GPS" },
+      "discovered_cell": { "name": "Torres de celular descobertas" },
+      "discovered_bt_gps": { "name": "Dispositivos Bluetooth com GPS" },
+      "discovered_bt": { "name": "Dispositivos Bluetooth descobertos" },
+      "total_wifi_locations": { "name": "Total de locais WiFi" }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi 네트워크 통계",
+        "description": "WiFi 네트워크 통계에 접근하려면 Wigle.net 자격 증명을 입력하세요.",
+        "data": {
+          "username": "사용자 이름",
+          "api_name": "API 이름 (AID...)",
+          "api_token": "API 토큰"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Wigle API에 연결할 수 없습니다",
+      "invalid_auth": "잘못된 인증 정보",
+      "unknown": "예기치 않은 오류가 발생했습니다"
+    },
+    "abort": {
+      "already_configured": "계정이 이미 구성되어 있습니다"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi 통계 옵션",
+        "description": "Wigle 통합 옵션을 구성하세요."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "순위" },
+      "month_rank": { "name": "월간 순위" },
+      "discovered_wifi_gps": { "name": "GPS 포함 WiFi 네트워크" },
+      "discovered_wifi": { "name": "발견된 WiFi 네트워크" },
+      "discovered_cell_gps": { "name": "GPS 포함 기지국" },
+      "discovered_cell": { "name": "발견된 기지국" },
+      "discovered_bt_gps": { "name": "GPS 포함 블루투스 기기" },
+      "discovered_bt": { "name": "발견된 블루투스 기기" },
+      "total_wifi_locations": { "name": "총 WiFi 위치" }
+    }
+  }
+}

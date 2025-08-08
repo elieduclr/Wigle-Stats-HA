@@ -1,0 +1,62 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFiネットワークの統計",
+        "description": "WiFiネットワークの統計にアクセスするために、Wigle.netの認証情報を入力してください。",
+        "data": {
+          "username": "ユーザー名",
+          "api_name": "API名（AIDなど）",
+          "api_token": "APIトークン"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Wigle APIへの接続に失敗しました",
+      "invalid_auth": "認証情報が無効です",
+      "unknown": "予期しないエラーが発生しました"
+    },
+    "abort": {
+      "already_configured": "アカウントは既に設定されています"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi統計のオプション",
+        "description": "Wigle統合のオプションを設定してください。"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": {
+        "name": "ランク"
+      },
+      "month_rank": {
+        "name": "月間ランク"
+      },
+      "discovered_wifi_gps": {
+        "name": "GPS付きWiFiネットワーク"
+      },
+      "discovered_wifi": {
+        "name": "検出されたWiFiネットワーク"
+      },
+      "discovered_cell_gps": {
+        "name": "GPS付き基地局"
+      },
+      "discovered_cell": {
+        "name": "検出された基地局"
+      },
+      "discovered_bt_gps": {
+        "name": "GPS付きBluetooth機器"
+      },
+      "discovered_bt": {
+        "name": "検出されたBluetooth機器"
+      },
+      "total_wifi_locations": {
+        "name": "WiFiロケーション合計"
+      }
+    }
+  }
+}

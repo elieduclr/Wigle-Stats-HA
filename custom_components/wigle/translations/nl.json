@@ -1,0 +1,62 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi-netwerkstatistieken",
+        "description": "Voer je Wigle.net-inloggegevens in om toegang te krijgen tot de statistieken van je WiFi-netwerken.",
+        "data": {
+          "username": "Gebruikersnaam",
+          "api_name": "API-naam (AID...)",
+          "api_token": "API-token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken met de Wigle API",
+      "invalid_auth": "Ongeldige authenticatiegegevens",
+      "unknown": "Er is een onverwachte fout opgetreden"
+    },
+    "abort": {
+      "already_configured": "Account is al geconfigureerd"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opties voor Wigle WiFi-statistieken",
+        "description": "Configureer de opties voor je Wigle-integratie."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": {
+        "name": "Rang"
+      },
+      "month_rank": {
+        "name": "Maandelijkse rang"
+      },
+      "discovered_wifi_gps": {
+        "name": "WiFi-netwerken met GPS"
+      },
+      "discovered_wifi": {
+        "name": "Ontdekte WiFi-netwerken"
+      },
+      "discovered_cell_gps": {
+        "name": "Basisstations met GPS"
+      },
+      "discovered_cell": {
+        "name": "Ontdekte basisstations"
+      },
+      "discovered_bt_gps": {
+        "name": "Bluetooth-apparaten met GPS"
+      },
+      "discovered_bt": {
+        "name": "Ontdekte Bluetooth-apparaten"
+      },
+      "total_wifi_locations": {
+        "name": "Totaal aantal WiFi-locaties"
+      }
+    }
+  }
+}

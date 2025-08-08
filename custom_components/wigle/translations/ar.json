@@ -1,0 +1,44 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "إحصائيات شبكات WiFi من Wigle",
+        "description": "أدخل بيانات تسجيل الدخول إلى Wigle.net للوصول إلى إحصائيات شبكات WiFi الخاصة بك.",
+        "data": {
+          "username": "اسم المستخدم",
+          "api_name": "اسم API (AID...)",
+          "api_token": "رمز API"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "فشل الاتصال بواجهة Wigle API",
+      "invalid_auth": "بيانات اعتماد غير صالحة",
+      "unknown": "حدث خطأ غير متوقع"
+    },
+    "abort": {
+      "already_configured": "الحساب مُعد مسبقًا"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "خيارات إحصائيات Wigle WiFi",
+        "description": "قم بتكوين خيارات تكامل Wigle الخاص بك."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "الرتبة" },
+      "month_rank": { "name": "الرتبة الشهرية" },
+      "discovered_wifi_gps": { "name": "شبكات WiFi مع GPS" },
+      "discovered_wifi": { "name": "شبكات WiFi المكتشفة" },
+      "discovered_cell_gps": { "name": "أبراج خلوية مع GPS" },
+      "discovered_cell": { "name": "أبراج خلوية مكتشفة" },
+      "discovered_bt_gps": { "name": "أجهزة Bluetooth مع GPS" },
+      "discovered_bt": { "name": "أجهزة Bluetooth المكتشفة" },
+      "total_wifi_locations": { "name": "إجمالي مواقع WiFi" }
+    }
+  }
+}

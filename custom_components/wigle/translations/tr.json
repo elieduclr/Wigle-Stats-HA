@@ -1,0 +1,44 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi ağ istatistikleri",
+        "description": "WiFi ağ istatistiklerine erişmek için Wigle.net kimlik bilgilerinizi girin.",
+        "data": {
+          "username": "Kullanıcı adı",
+          "api_name": "API adı (AID...)",
+          "api_token": "API anahtarı"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Wigle API'sine bağlanılamadı",
+      "invalid_auth": "Geçersiz kimlik bilgileri",
+      "unknown": "Beklenmeyen bir hata oluştu"
+    },
+    "abort": {
+      "already_configured": "Hesap zaten yapılandırılmış"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi istatistikleri seçenekleri",
+        "description": "Wigle entegrasyonunuz için seçenekleri yapılandırın."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "Sıra" },
+      "month_rank": { "name": "Aylık sıra" },
+      "discovered_wifi_gps": { "name": "GPS'li WiFi ağları" },
+      "discovered_wifi": { "name": "Keşfedilen WiFi ağları" },
+      "discovered_cell_gps": { "name": "GPS'li baz istasyonları" },
+      "discovered_cell": { "name": "Keşfedilen baz istasyonları" },
+      "discovered_bt_gps": { "name": "GPS'li Bluetooth cihazları" },
+      "discovered_bt": { "name": "Keşfedilen Bluetooth cihazları" },
+      "total_wifi_locations": { "name": "Toplam WiFi konumu" }
+    }
+  }
+}

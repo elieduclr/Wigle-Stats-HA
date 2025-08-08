@@ -1,0 +1,44 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Statystyki sieci WiFi Wigle",
+        "description": "Wprowadź dane logowania do Wigle.net, aby uzyskać dostęp do statystyk swoich sieci WiFi.",
+        "data": {
+          "username": "Nazwa użytkownika",
+          "api_name": "Nazwa API (AID...)",
+          "api_token": "Token API"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nie udało się połączyć z API Wigle",
+      "invalid_auth": "Nieprawidłowe dane uwierzytelniające",
+      "unknown": "Wystąpił nieoczekiwany błąd"
+    },
+    "abort": {
+      "already_configured": "Konto jest już skonfigurowane"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opcje statystyk Wigle WiFi",
+        "description": "Skonfiguruj opcje dla integracji Wigle."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "Ranga" },
+      "month_rank": { "name": "Ranga miesięczna" },
+      "discovered_wifi_gps": { "name": "Sieci WiFi z GPS" },
+      "discovered_wifi": { "name": "Wykryte sieci WiFi" },
+      "discovered_cell_gps": { "name": "Stacje bazowe z GPS" },
+      "discovered_cell": { "name": "Wykryte stacje bazowe" },
+      "discovered_bt_gps": { "name": "Urządzenia Bluetooth z GPS" },
+      "discovered_bt": { "name": "Wykryte urządzenia Bluetooth" },
+      "total_wifi_locations": { "name": "Łączna liczba lokalizacji WiFi" }
+    }
+  }
+}

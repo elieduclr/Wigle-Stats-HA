@@ -1,0 +1,44 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi网络统计",
+        "description": "请输入您的Wigle.net凭据以访问您的WiFi网络统计信息。",
+        "data": {
+          "username": "用户名",
+          "api_name": "API名称（AID...）",
+          "api_token": "API令牌"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "无法连接到Wigle API",
+      "invalid_auth": "认证凭据无效",
+      "unknown": "发生了意外错误"
+    },
+    "abort": {
+      "already_configured": "该账户已配置"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi统计选项",
+        "description": "配置您的Wigle集成选项。"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "排名" },
+      "month_rank": { "name": "月排名" },
+      "discovered_wifi_gps": { "name": "带GPS的WiFi网络" },
+      "discovered_wifi": { "name": "发现的WiFi网络" },
+      "discovered_cell_gps": { "name": "带GPS的基站" },
+      "discovered_cell": { "name": "发现的基站" },
+      "discovered_bt_gps": { "name": "带GPS的蓝牙设备" },
+      "discovered_bt": { "name": "发现的蓝牙设备" },
+      "total_wifi_locations": { "name": "WiFi位置总数" }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Статистика WiFi сетей Wigle",
+        "description": "Введите свои учетные данные Wigle.net для доступа к статистике ваших WiFi сетей.",
+        "data": {
+          "username": "Имя пользователя",
+          "api_name": "Имя API (AID...)",
+          "api_token": "Токен API"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Не удалось подключиться к API Wigle",
+      "invalid_auth": "Неверные данные аутентификации",
+      "unknown": "Произошла непредвиденная ошибка"
+    },
+    "abort": {
+      "already_configured": "Аккаунт уже настроен"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Настройки статистики Wigle WiFi",
+        "description": "Настройте параметры для интеграции Wigle."
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": {
+        "name": "Ранг"
+      },
+      "month_rank": {
+        "name": "Месячный ранг"
+      },
+      "discovered_wifi_gps": {
+        "name": "WiFi сети с GPS"
+      },
+      "discovered_wifi": {
+        "name": "Обнаруженные WiFi сети"
+      },
+      "discovered_cell_gps": {
+        "name": "Базовые станции с GPS"
+      },
+      "discovered_cell": {
+        "name": "Обнаруженные базовые станции"
+      },
+      "discovered_bt_gps": {
+        "name": "Bluetooth устройства с GPS"
+      },
+      "discovered_bt": {
+        "name": "Обнаруженные Bluetooth устройства"
+      },
+      "total_wifi_locations": {
+        "name": "Всего WiFi локаций"
+      }
+    }
+  }
+}
