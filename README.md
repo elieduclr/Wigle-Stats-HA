@@ -4,217 +4,224 @@
 [![GitHub release](https://img.shields.io/github/release/elieduclr/Wigle-Stats-HACS.svg)](https://github.com/elieduclr/Wigle-Stats-HACS/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Une intégration Home Assistant pour récupérer les statistiques de découverte WiFi, Bluetooth et cellulaire de votre compte [Wigle.net](https://wigle.net) 🌐
+[![Français](https://img.shields.io/badge/README-Français-blue?style=for-the-badge)](FR-README.md)
 
-## ✨ Fonctionnalités
+A Home Assistant integration to retrieve WiFi, Bluetooth, and cellular discovery statistics from your [Wigle.net](https://wigle.net) account 🌐
 
-Cette intégration vous permet de suivre vos performances de wardriving directement dans Home Assistant :
+## ✨ Features
 
-- 🏆 **Classements** : Rang global et mensuel dans la communauté Wigle
-- 📶 **Réseaux WiFi** : Nombre de réseaux découverts (avec/sans coordonnées GPS)
-- 📱 **Tours cellulaires** : Antennes découvertes lors de vos déplacements
-- 🔵 **Appareils Bluetooth** : Devices BLE détectés avec géolocalisation
-- 📍 **Géolocalisation** : Suivi des emplacements WiFi mappés
-- 📈 **Évolution** : Historique des rangs et progression mensuelle
-- ⏰ **Activité** : Dates de première et dernière contribution
+This integration allows you to track your wardriving performance directly in Home Assistant:
+
+- 🏆 **Rankings**: Global and monthly rank in the Wigle community
+- 📶 **WiFi Networks**: Number of discovered networks (with/without GPS coordinates)
+- 📱 **Cell Towers**: Antennas discovered during your travels
+- 🔵 **Bluetooth Devices**: BLE devices detected with geolocation
+- 📍 **Geolocation**: Tracking of mapped WiFi locations
+- 📈 **Evolution**: History of ranks and monthly progression
+- ⏰ **Activity**: First and last contribution dates
 
 ## 🚀 Installation
 
-### Option 1 : Installation via HACS (Recommandé)
+### Option 1: Installation via HACS (Recommended)
 
-#### 📋 Prérequis
-- ✅ Home Assistant 2023.1.0 ou plus récent
-- ✅ [HACS](https://hacs.xyz/) installé et configuré
-- ✅ Compte [Wigle.net](https://wigle.net) avec API activée
+#### 📋 Prerequisites
+- ✅ Home Assistant 2023.1.0 or newer
+- ✅ [HACS](https://hacs.xyz/) installed and configured
+- ✅ [Wigle.net](https://wigle.net) account with API enabled
 
-#### 🔧 Étapes d'installation HACS
+#### 🔧 HACS Installation Steps
 
-1. **📁 Ajouter le repository personnalisé :**
-   - Ouvrir HACS → Intégrations
-   - Cliquer sur `⋮` (trois points) → `Dépôts personnalisés`
-   - Ajouter l'URL : `https://github.com/elieduclr/Wigle-Stats-HACS`
-   - Catégorie : `Intégration`
-   - Cliquer sur `AJOUTER`
+1. **📁 Add custom repository:**
+   - Open HACS → Integrations
+   - Click on `⋮` (three dots) → `Custom repositories`
+   - Add URL: `https://github.com/elieduclr/Wigle-Stats-HACS`
+   - Category: `Integration`
+   - Click `ADD`
 
-2. **💾 Installer l'intégration :**
-   - Dans HACS → Intégrations, rechercher `Wigle WiFi Network Statistics`
-   - Cliquer sur `TÉLÉCHARGER`
-   - Redémarrer Home Assistant 🔄
+2. **💾 Install the integration:**
+   - In HACS → Integrations, search for `Wigle WiFi Network Statistics`
+   - Click `DOWNLOAD`
+   - Restart Home Assistant 🔄
 
-3. **⚙️ Configuration :**
-   - Aller dans `Configuration` → `Intégrations`
-   - Cliquer sur `+ AJOUTER UNE INTÉGRATION`
-   - Rechercher `Wigle WiFi Network Statistics`
-   - Entrer vos identifiants (voir section API ci-dessous)
+3. **⚙️ Configuration:**
+   - Go to `Settings` → `Integrations`
+   - Click `+ ADD INTEGRATION`
+   - Search for `Wigle WiFi Network Statistics`
+   - Enter your credentials (see API section below)
 
-### Option 2 : Installation manuelle
+### Option 2: Manual Installation
 
-#### 📂 Structure des fichiers
+#### 📂 File Structure
 
-Télécharger tous les fichiers et créer cette structure dans votre configuration Home Assistant :
+Download all files and create this structure in your Home Assistant configuration:
 
 ```
 config/
 └── custom_components/
     └── wigle/
+        ├── translations/
+        |   ├── de.json
+        |   ├── es.json
+        |   ├── fr.json
+        |   └── it.json
         ├── __init__.py
-        ├── manifest.json
-        ├── const.py
-        ├── wigle_api.py
         ├── config_flow.py
+        ├── const.py
+        ├── manifest.json
         ├── sensor.py
-        └── strings.json
+        ├── strings.json
+        └── wigle_api.py
 ```
 
-#### 🔄 Après installation manuelle
+#### 🔄 After Manual Installation
 
-1. **Redémarrer Home Assistant**
-2. **Vider le cache du navigateur** (Ctrl+F5)
-3. **Ajouter l'intégration** via `Configuration` → `Intégrations`
+1. **Restart Home Assistant**
+2. **Clear browser cache** (Ctrl+F5)
+3. **Add integration** via `Settings` → `Integrations`
 
-## 🔑 Obtenir vos identifiants API Wigle
+## 🔑 Getting Your Wigle API Credentials
 
-Pour utiliser cette intégration, vous avez besoin de vos identifiants API Wigle :
+To use this integration, you need your Wigle API credentials:
 
-1. **🌐 Connectez-vous** sur [wigle.net](https://wigle.net)
-2. **👤 Accédez à votre profil** → `Account` → `API`
-3. **📝 Notez vos identifiants** :
-   - **API Name** : `AID54419563fgdh63hdd7d553139928ae`
-   - **API Token** : `8b1614a79cbdh76b5d87cb606e29e677`
+1. **🌐 Log in** to [wigle.net](https://wigle.net)
+2. **👤 Access your profile** → `Account` → `API`
+3. **📝 Note your credentials**:
+   - **API Name**: `AID54419563fgdh63hdd7d553139928ae`
+   - **API Token**: `8b1614a79cbdh76b5d87cb606e29e677`
 
-> ⚠️ **Important** : Gardez ces identifiants confidentiels !
+> ⚠️ **Important**: Keep these credentials confidential!
 
-## ⚙️ Configuration dans Home Assistant
+## ⚙️ Configuration in Home Assistant
 
-Lors de l'ajout de l'intégration, vous devrez saisir :
+When adding the integration, you will need to enter:
 
-| Champ | Valeur | Exemple |
-|-------|--------|---------|
-| **Username** | Votre nom d'utilisateur Wigle | `malic1tus` |
-| **API Name** | Votre API Name (commence par AID) | `AID54419563fgdh63hdd7d553139928ae` |
-| **API Token** | Votre token API | `8b1614a79cbdh76b5d87cb606e29e677` |
+| Field | Value | Example |
+|-------|-------|---------|
+| **Username** | Your Wigle username | `malic1tus` |
+| **API Name** | Your API Name (starts with AID) | `AID54419563fgdh63hdd7d553139928ae` |
+| **API Token** | Your API token | `8b1614a79cbdh76b5d87cb606e29e677` |
 
-## 📊 Capteurs disponibles
+## 📊 Available Sensors
 
-L'intégration crée automatiquement **9 capteurs** avec toutes vos statistiques :
+The integration automatically creates **9 sensors** with all your statistics:
 
-| Capteur | Description | Icône |
-|---------|-------------|-------|
-| `sensor.wigle_rank` | 🏆 Votre rang global | `mdi:trophy` |
-| `sensor.wigle_monthly_rank` | 📅 Votre rang mensuel | `mdi:trophy-outline` |
-| `sensor.wigle_wifi_networks_with_gps` | 📶 WiFi avec coordonnées GPS | `mdi:wifi` |
-| `sensor.wigle_wifi_networks_discovered` | 📡 Total réseaux WiFi découverts | `mdi:wifi` |
-| `sensor.wigle_cell_towers_with_gps` | 📱 Tours cellulaires avec GPS | `mdi:cellphone-nfc` |
-| `sensor.wigle_cell_towers_discovered` | 🏗️ Total tours cellulaires découvertes | `mdi:cellphone-nfc` |
-| `sensor.wigle_bluetooth_devices_with_gps` | 🔵 Bluetooth avec GPS | `mdi:bluetooth` |
-| `sensor.wigle_bluetooth_devices_discovered` | 📻 Total appareils Bluetooth | `mdi:bluetooth` |
-| `sensor.wigle_total_wifi_locations` | 📍 Total emplacements WiFi | `mdi:map-marker-multiple` |
+| Sensor | Description | Icon |
+|--------|-------------|------|
+| `sensor.wigle_rank` | 🏆 Your global rank | `mdi:trophy` |
+| `sensor.wigle_monthly_rank` | 📅 Your monthly rank | `mdi:trophy-outline` |
+| `sensor.wigle_wifi_networks_with_gps` | 📶 WiFi with GPS coordinates | `mdi:wifi` |
+| `sensor.wigle_wifi_networks_discovered` | 📡 Total WiFi networks discovered | `mdi:wifi` |
+| `sensor.wigle_cell_towers_with_gps` | 📱 Cell towers with GPS | `mdi:cellphone-nfc` |
+| `sensor.wigle_cell_towers_discovered` | 🏗️ Total cell towers discovered | `mdi:cellphone-nfc` |
+| `sensor.wigle_bluetooth_devices_with_gps` | 🔵 Bluetooth with GPS | `mdi:bluetooth` |
+| `sensor.wigle_bluetooth_devices_discovered` | 📻 Total Bluetooth devices | `mdi:bluetooth` |
+| `sensor.wigle_total_wifi_locations` | 📍 Total WiFi locations | `mdi:map-marker-multiple` |
 
-## 📋 Attributs supplémentaires
+## 📋 Additional Attributes
 
-Chaque capteur inclut des **attributs détaillés** :
+Each sensor includes **detailed attributes**:
 
-### 🏆 Capteurs de rang
-- `previous_rank` - Rang précédent
-- `rank_change` - Évolution du rang (+ = progression, - = régression)
-- `previous_month_rank` - Rang mensuel précédent
-- `month_rank_change` - Évolution mensuelle
+### 🏆 Rank Sensors
+- `previous_rank` - Previous rank
+- `rank_change` - Rank evolution (+ = progress, - = regression)
+- `previous_month_rank` - Previous monthly rank
+- `month_rank_change` - Monthly evolution
 
-### 📊 Tous les capteurs
-- `username` - Nom d'utilisateur Wigle
-- `wifi_gps_percentage` - Pourcentage de WiFi avec GPS
-- `first_activity` - Date de première activité (format: `YYYYMMDD-NNNNN`)
-- `last_activity` - Date de dernière activité
+### 📊 All Sensors
+- `username` - Wigle username
+- `wifi_gps_percentage` - Percentage of WiFi with GPS
+- `first_activity` - First activity date (format: `YYYYMMDD-NNNNN`)
+- `last_activity` - Last activity date
 
-## 🎨 Exemple de dashboard
+## 🎨 Dashboard Example
 
-Voici un exemple de carte Lovelace pour afficher vos statistiques :
+Here's an example Lovelace card to display your statistics:
 
 ```yaml
 type: entities
-title: 📡 Statistiques Wigle
+title: 📡 Wigle Statistics
 entities:
   - entity: sensor.wigle_rank
-    name: 🏆 Rang global
+    name: 🏆 Global Rank
     secondary_info: attribute
     attribute: rank_change
   - entity: sensor.wigle_monthly_rank
-    name: 📅 Rang mensuel
+    name: 📅 Monthly Rank
   - entity: sensor.wigle_wifi_networks_discovered
-    name: 📶 Réseaux WiFi
+    name: 📶 WiFi Networks
   - entity: sensor.wigle_bluetooth_devices_discovered
-    name: 🔵 Appareils Bluetooth
+    name: 🔵 Bluetooth Devices
   - entity: sensor.wigle_cell_towers_discovered
-    name: 📱 Tours cellulaires
+    name: 📱 Cell Towers
 ```
 
-## 🔄 Mise à jour des données
+## 🔄 Data Updates
 
-- **Fréquence** : Toutes les heures (les données Wigle changent peu)
-- **Limite API** : Respecte les limites de taux de Wigle
-- **Reconnexion automatique** : En cas d'erreur temporaire
+- **Frequency**: Every hour (Wigle data changes slowly)
+- **API Limits**: Respects Wigle rate limits
+- **Auto-reconnection**: In case of temporary errors
 
-## 🛠️ Dépannage
+## 🛠️ Troubleshooting
 
-### ❌ Erreur d'authentification
-- ✅ Vérifiez que votre **username**, **API Name** et **API Token** sont corrects
-- ✅ Assurez-vous que l'**API est activée** sur votre compte Wigle
-- ✅ L'**API Name** doit commencer par `AID` suivi de caractères alphanumériques
-- ✅ Testez avec curl : 
+### ❌ Authentication Error
+- ✅ Check that your **username**, **API Name**, and **API Token** are correct
+- ✅ Make sure **API is enabled** on your Wigle account
+- ✅ The **API Name** must start with `AID` followed by alphanumeric characters
+- ✅ Test with curl:
   ```bash
   curl -u AID...:TOKEN... https://api.wigle.net/api/v2/profile/user
   ```
 
-### 📊 Pas de données
-- ⏰ L'intégration met à jour les données **toutes les heures**
-- 🔍 Vérifiez les **logs** de Home Assistant pour les erreurs :
+### 📊 No Data
+- ⏰ The integration updates data **every hour**
+- 🔍 Check Home Assistant **logs** for errors:
   ```
-  Paramètres → Système → Journaux
+  Settings → System → Logs
   ```
 
-### 🚫 Limitation de l'API
-- ⚠️ Wigle limite les requêtes API par utilisateur
-- ⏱️ L'intégration respecte un **intervalle d'une heure** entre mises à jour
-- 🔄 Patience, les données se mettront à jour automatiquement
+### 🚫 API Rate Limiting
+- ⚠️ Wigle limits API requests per user
+- ⏱️ The integration respects a **one-hour interval** between updates
+- 🔄 Be patient, data will update automatically
 
-### 🔧 Problèmes courants
+### 🔧 Common Issues
 
-| Problème | Solution |
-|----------|----------|
-| Intégration ne s'affiche pas | Redémarrer HA et vider le cache navigateur |
-| Erreur "cannot_connect" | Vérifier la connectivité Internet |
-| Erreur "unknown" | Consulter les logs détaillés |
+| Problem | Solution |
+|---------|----------|
+| Integration doesn't show up | Restart HA and clear browser cache |
+| "cannot_connect" error | Check Internet connectivity |
+| "unknown" error | Check detailed logs |
 
-## 🤝 Contribution et développement
+## 🤝 Contribution and Development
 
-Vous souhaitez contribuer ? C'est fantastique ! 🎉
+Want to contribute? That's fantastic! 🎉
 
-### 🔧 Environnement de développement
+### 🔧 Development Environment
 
-1. **Fork** le repository
-2. **Cloner** votre fork
-3. **Créer** une branche pour votre fonctionnalité
-4. **Tester** avec Home Assistant
-5. **Soumettre** une pull request
+1. **Fork** the repository
+2. **Clone** your fork
+3. **Create** a branch for your feature
+4. **Test** with Home Assistant
+5. **Submit** a pull request
 
-### 🐛 Signaler un bug
+### 🐛 Report a Bug
 
-Utilisez les [GitHub Issues](https://github.com/elieduclr/Wigle-Stats-HACS/issues) avec :
-- ✅ Version de Home Assistant
-- ✅ Version de l'intégration
-- ✅ Logs d'erreur complets
-- ✅ Étapes pour reproduire
+Use [GitHub Issues](https://github.com/elieduclr/Wigle-Stats-HACS/issues) with:
+- ✅ Home Assistant version
+- ✅ Integration version
+- ✅ Complete error logs
+- ✅ Steps to reproduce
 
-## 📄 Licence
+## 📄 License
 
-Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Remerciements
+## 🙏 Acknowledgments
 
-- 🌟 [Wigle.net](https://wigle.net) pour leur formidable API
-- 🏠 La communauté [Home Assistant](https://www.home-assistant.io/) 
-- 📊 Tous les wardrivers qui contribuent à cartographier les réseaux !
+- 🌟 [Wigle.net](https://wigle.net) for their fantastic API
+- 🏠 The [Home Assistant](https://www.home-assistant.io/) community
+- 📊 All wardrivers who contribute to mapping networks!
 
 ---
 
-**⭐ Si cette intégration vous plaît, n'hésitez pas à lui donner une étoile sur GitHub !**
+**⭐ If you like this integration, feel free to give it a star on GitHub!**
