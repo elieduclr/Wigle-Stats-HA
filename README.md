@@ -4,7 +4,7 @@
 [![GitHub release](https://img.shields.io/github/release/elieduclr/Wigle-Stats-HACS.svg)](https://github.com/elieduclr/Wigle-Stats-HACS/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![Français](https://img.shields.io/badge/README-Français-blue?style=for-the-badge)](FR-README.md)
+[![Français](https://img.shields.io/badge/README-Français-blue?style=for-the-badge)]([FR-README.md](https://github.com/elieduclr/Wigle-Stats-HA/blob/main/FR-README.md))
 
 A Home Assistant integration to retrieve WiFi, Bluetooth, and cellular discovery statistics from your [Wigle.net](https://wigle.net) account 🌐
 
