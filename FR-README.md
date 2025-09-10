@@ -32,21 +32,14 @@ Cette intégration vous permet de suivre vos performances de wardriving directem
 #### 🔧 Étapes d'installation HACS
 
 1. **📁 Ajouter le repository personnalisé :**
-   - Ouvrir HACS → Intégrations
-   - Cliquer sur `⋮` (trois points) → `Dépôts personnalisés`
-   - Ajouter l'URL : `https://github.com/elieduclr/Wigle-Stats-HACS`
-   - Catégorie : `Intégration`
-   - Cliquer sur `AJOUTER`
+   - [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=elieduclr&repository=Wigle-Stats-HA&category=integration)
 
 2. **💾 Installer l'intégration :**
-   - Dans HACS → Intégrations, rechercher `Wigle WiFi Network Statistics`
    - Cliquer sur `TÉLÉCHARGER`
    - Redémarrer Home Assistant 🔄
 
 3. **⚙️ Configuration :**
-   - Aller dans `Configuration` → `Intégrations`
-   - Cliquer sur `+ AJOUTER UNE INTÉGRATION`
-   - Rechercher `Wigle WiFi Network Statistics`
+   - [![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=wigle)
    - Entrer vos identifiants (voir section API ci-dessous)
 
 ### Option 2 : Installation manuelle
