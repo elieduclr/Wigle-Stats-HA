@@ -5,16 +5,15 @@ import logging
 from typing import Any
 
 import voluptuous as vol
-
 from homeassistant import config_entries
 from homeassistant.const import CONF_USERNAME
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 import homeassistant.helpers.config_validation as cv
 
-from .const import DOMAIN, CONF_API_NAME, CONF_API_TOKEN
+from .const import DOMAIN, CONF_API_NAME, CONF_API_TOKEN, SENSOR_TYPES
 from .wigle_api import WigleAPI
 
 _LOGGER = logging.getLogger(__name__)
@@ -85,6 +84,65 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         return self.async_show_form(
             step_id="user", data_schema=STEP_USER_DATA_SCHEMA, errors=errors
+        )
+
+    @staticmethod
+    @callback
+    def async_get_options_flow(config_entry):
+        """Get the options flow for this handler."""
+        return OptionsFlowHandler(config_entry)
+
+
+class OptionsFlowHandler(config_entries.OptionsFlow):
+    """Handle Wigle options."""
+
+    def __init__(self, config_entry: config_entries.ConfigEntry):
+        """Initialize options flow."""
+        self.config_entry = config_entry
+
+    async def async_step_init(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Manage the options."""
+        if user_input is not None:
+            return self.async_create_entry(title="", data=user_input)
+
+        # Create sensor selection options
+        sensor_options = {key: config["translation_key"] for key, config in SENSOR_TYPES.items()}
+
+        options_schema = vol.Schema({
+            vol.Optional(
+                "update_interval", 
+                default=self.config_entry.options.get("update_interval", 60)
+            ): vol.All(vol.Coerce(int), vol.Range(min=30, max=1440)),
+            vol.Optional(
+                "rank_goal", 
+                default=self.config_entry.options.get("rank_goal", 0)
+            ): vol.All(vol.Coerce(int), vol.Range(min=0)),
+            vol.Optional(
+                "enabled_sensors", 
+                default=self.config_entry.options.get("enabled_sensors", list(SENSOR_TYPES.keys()))
+            ): cv.multi_select(sensor_options),
+            vol.Optional(
+                "notifications_enabled", 
+                default=self.config_entry.options.get("notifications_enabled", False)
+            ): bool,
+            vol.Optional(
+                "notification_rank_threshold",
+                default=self.config_entry.options.get("notification_rank_threshold", 100)
+            ): vol.All(vol.Coerce(int), vol.Range(min=1)),
+        })
+
+        return self.async_show_form(
+            step_id="init",
+            data_schema=options_schema,
+            description_placeholders={
+                "update_interval_desc": "Intervalle de mise à jour en minutes (30-1440)",
+                "rank_goal_desc": "Objectif de classement (0 = désactivé)",
+                "sensors_desc": "Sélectionnez les capteurs à activer",
+                "notifications_desc": "Activer les notifications de changement de rang",
+                "threshold_desc": "Seuil minimal pour notifications de changement de rang"
+            }
         )
 
 
