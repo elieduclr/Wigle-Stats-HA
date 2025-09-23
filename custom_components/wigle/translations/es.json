@@ -2,17 +2,17 @@
   "config": {
     "step": {
       "user": {
-        "title": "Estadísticas de redes WiFi Wigle",
-        "description": "Ingresa tus credenciales de Wigle.net para acceder a las estadísticas de tus redes WiFi.",
+        "title": "Estadísticas de redes WiFi de Wigle",
+        "description": "Introduce tus credenciales de Wigle.net para acceder a las estadísticas de tus redes WiFi.",
         "data": {
           "username": "Nombre de usuario",
           "api_name": "Nombre de API (AID...)",
-          "api_token": "Token de API"
+          "api_token": "Token de la API"
         }
       }
     },
     "error": {
-      "cannot_connect": "Error al conectar con la API de Wigle",
+      "cannot_connect": "No se pudo conectar a la API de Wigle",
       "invalid_auth": "Credenciales de autenticación inválidas",
       "unknown": "Ocurrió un error inesperado"
     },
@@ -23,39 +23,85 @@
   "options": {
     "step": {
       "init": {
-        "title": "Opciones de estadísticas Wigle WiFi",
-        "description": "Configura las opciones para tu integración Wigle."
+        "title": "Opciones de estadísticas de redes WiFi de Wigle",
+        "description": "Configura las opciones para tu integración Wigle.",
+        "data": {
+          "update_interval": "Intervalo de actualización (minutos)",
+          "rank_goal": "Objetivo de ranking (0 = desactivado)",
+          "enabled_sensors": "Sensores habilitados",
+          "notifications_enabled": "Habilitar notificaciones",
+          "notification_rank_threshold": "Umbral de cambio de ranking para notificaciones",
+          "monthly_rank_goal": "Objetivo mensual de ranking (0 = desactivado)"
+        },
+        "data_description": {
+          "update_interval": "Frecuencia de actualización de datos (30-1440 minutos)",
+          "rank_goal": "Ranking global objetivo a alcanzar (0 para desactivar)",
+          "enabled_sensors": "Selecciona qué sensores activar",
+          "notifications_enabled": "Recibir notificaciones sobre cambios significativos de ranking",
+          "notification_rank_threshold": "Mejora mínima de ranking para activar la notificación",
+          "monthly_rank_goal": "Objetivo mensual de ranking a alcanzar"
+        }
       }
     }
   },
   "entity": {
     "sensor": {
-      "rank": {
-        "name": "Rango"
-      },
-      "month_rank": {
-        "name": "Rango mensual"
-      },
-      "discovered_wifi_gps": {
-        "name": "Redes WiFi con GPS"
-      },
-      "discovered_wifi": {
-        "name": "Redes WiFi descubiertas"
-      },
-      "discovered_cell_gps": {
-        "name": "Torres celulares con GPS"
-      },
-      "discovered_cell": {
-        "name": "Torres celulares descubiertas"
-      },
-      "discovered_bt_gps": {
-        "name": "Dispositivos Bluetooth con GPS"
-      },
-      "discovered_bt": {
-        "name": "Dispositivos Bluetooth descubiertos"
-      },
-      "total_wifi_locations": {
-        "name": "Total ubicaciones WiFi"
+      "rank": { "name": "Ranking" },
+      "month_rank": { "name": "Ranking mensual" },
+      "discovered_wifi_gps": { "name": "Redes WiFi con GPS" },
+      "discovered_wifi": { "name": "Redes WiFi detectadas" },
+      "discovered_cell_gps": { "name": "Torres celulares con GPS" },
+      "discovered_cell": { "name": "Torres celulares detectadas" },
+      "discovered_bt_gps": { "name": "Dispositivos Bluetooth con GPS" },
+      "discovered_bt": { "name": "Dispositivos Bluetooth detectados" },
+      "total_wifi_locations": { "name": "Total ubicaciones WiFi" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Activo este mes" },
+      "active_this_week": { "name": "Activo esta semana" },
+      "rank_improved": { "name": "Ranking mejorado" },
+      "goal_reached": { "name": "Objetivo alcanzado" },
+      "top_performer": { "name": "Mejor rendimiento" },
+      "monthly_goal_on_track": { "name": "Objetivo mensual en buen camino" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Forzar actualización",
+      "description": "Forzar una actualización inmediata de los datos de Wigle",
+      "fields": {
+        "username": {
+          "name": "Nombre de usuario",
+          "description": "Nombre de usuario de Wigle a actualizar"
+        }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Establecer objetivo de ranking",
+      "description": "Establecer objetivos de ranking para un usuario de Wigle",
+      "fields": {
+        "username": {
+          "name": "Nombre de usuario",
+          "description": "Nombre de usuario de Wigle"
+        },
+        "goal": {
+          "name": "Objetivo de ranking",
+          "description": "Ranking global objetivo"
+        },
+        "monthly_goal": {
+          "name": "Objetivo mensual de ranking",
+          "description": "Ranking mensual objetivo (opcional)"
+        }
+      }
+    },
+    "reset_statistics": {
+      "name": "Restablecer estadísticas",
+      "description": "Restablecer estadísticas en caché y forzar la obtención de datos nuevos",
+      "fields": {
+        "username": {
+          "name": "Nombre de usuario",
+          "description": "Nombre de usuario de Wigle a restablecer"
+        }
       }
     }
   }

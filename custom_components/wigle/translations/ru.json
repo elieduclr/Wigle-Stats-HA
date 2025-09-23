@@ -2,8 +2,8 @@
   "config": {
     "step": {
       "user": {
-        "title": "Статистика WiFi сетей Wigle",
-        "description": "Введите свои учетные данные Wigle.net для доступа к статистике ваших WiFi сетей.",
+        "title": "Статистика WiFi-сетей Wigle",
+        "description": "Введите свои учетные данные Wigle.net, чтобы получить доступ к статистике ваших WiFi-сетей.",
         "data": {
           "username": "Имя пользователя",
           "api_name": "Имя API (AID...)",
@@ -12,8 +12,8 @@
       }
     },
     "error": {
-      "cannot_connect": "Не удалось подключиться к API Wigle",
-      "invalid_auth": "Неверные данные аутентификации",
+      "cannot_connect": "Не удалось подключиться к Wigle API",
+      "invalid_auth": "Неверные учетные данные для авторизации",
       "unknown": "Произошла непредвиденная ошибка"
     },
     "abort": {
@@ -23,39 +23,70 @@
   "options": {
     "step": {
       "init": {
-        "title": "Настройки статистики Wigle WiFi",
-        "description": "Настройте параметры для интеграции Wigle."
+        "title": "Параметры статистики WiFi Wigle",
+        "description": "Настройте параметры для вашей интеграции Wigle.",
+        "data": {
+          "update_interval": "Интервал обновления (минуты)",
+          "rank_goal": "Цель ранга (0 = отключено)",
+          "enabled_sensors": "Включенные сенсоры",
+          "notifications_enabled": "Включить уведомления",
+          "notification_rank_threshold": "Порог изменения ранга для уведомлений",
+          "monthly_rank_goal": "Месячная цель ранга (0 = отключено)"
+        },
+        "data_description": {
+          "update_interval": "Как часто обновлять данные (30-1440 минут)",
+          "rank_goal": "Целевой глобальный ранг для достижения (0 чтобы отключить)",
+          "enabled_sensors": "Выберите, какие сенсоры включить",
+          "notifications_enabled": "Получать уведомления о значительных изменениях ранга",
+          "notification_rank_threshold": "Минимальное улучшение ранга для срабатывания уведомления",
+          "monthly_rank_goal": "Целевой месячный ранг для достижения"
+        }
       }
     }
   },
   "entity": {
     "sensor": {
-      "rank": {
-        "name": "Ранг"
-      },
-      "month_rank": {
-        "name": "Месячный ранг"
-      },
-      "discovered_wifi_gps": {
-        "name": "WiFi сети с GPS"
-      },
-      "discovered_wifi": {
-        "name": "Обнаруженные WiFi сети"
-      },
-      "discovered_cell_gps": {
-        "name": "Базовые станции с GPS"
-      },
-      "discovered_cell": {
-        "name": "Обнаруженные базовые станции"
-      },
-      "discovered_bt_gps": {
-        "name": "Bluetooth устройства с GPS"
-      },
-      "discovered_bt": {
-        "name": "Обнаруженные Bluetooth устройства"
-      },
-      "total_wifi_locations": {
-        "name": "Всего WiFi локаций"
+      "rank": { "name": "Ранг" },
+      "month_rank": { "name": "Месячный ранг" },
+      "discovered_wifi_gps": { "name": "WiFi-сети с GPS" },
+      "discovered_wifi": { "name": "Обнаруженные WiFi-сети" },
+      "discovered_cell_gps": { "name": "Сотовые вышки с GPS" },
+      "discovered_cell": { "name": "Обнаруженные сотовые вышки" },
+      "discovered_bt_gps": { "name": "Bluetooth-устройства с GPS" },
+      "discovered_bt": { "name": "Обнаруженные Bluetooth-устройства" },
+      "total_wifi_locations": { "name": "Всего местоположений WiFi" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Активен в этом месяце" },
+      "active_this_week": { "name": "Активен на этой неделе" },
+      "rank_improved": { "name": "Ранг улучшен" },
+      "goal_reached": { "name": "Цель достигнута" },
+      "top_performer": { "name": "Лучший исполнитель" },
+      "monthly_goal_on_track": { "name": "Месячная цель в графике" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Принудительное обновление",
+      "description": "Принудительно выполнить немедленное обновление данных Wigle",
+      "fields": {
+        "username": { "name": "Имя пользователя", "description": "Имя пользователя Wigle для обновления" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Установить цель ранга",
+      "description": "Установить цели ранга для пользователя Wigle",
+      "fields": {
+        "username": { "name": "Имя пользователя", "description": "Имя пользователя Wigle" },
+        "goal": { "name": "Цель ранга", "description": "Целевой глобальный ранг" },
+        "monthly_goal": { "name": "Месячная цель ранга", "description": "Целевой месячный ранг (необязательно)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Сброс статистики",
+      "description": "Сбросить кэшированные статистики и принудительно получить свежие данные",
+      "fields": {
+        "username": { "name": "Имя пользователя", "description": "Имя пользователя Wigle для сброса" }
       }
     }
   }

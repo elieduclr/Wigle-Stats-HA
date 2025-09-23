@@ -24,38 +24,84 @@
     "step": {
       "init": {
         "title": "Options des statistiques Wigle WiFi",
-        "description": "Configurez les options pour votre intégration Wigle."
+        "description": "Configurez les options pour votre intégration Wigle.",
+        "data": {
+          "update_interval": "Intervalle de mise à jour (minutes)",
+          "rank_goal": "Objectif de classement (0 = désactivé)",
+          "enabled_sensors": "Capteurs activés",
+          "notifications_enabled": "Activer les notifications",
+          "notification_rank_threshold": "Seuil de changement de rang pour les notifications",
+          "monthly_rank_goal": "Objectif de rang mensuel (0 = désactivé)"
+        },
+        "data_description": {
+          "update_interval": "Fréquence des mises à jour (30–1440 minutes)",
+          "rank_goal": "Rang global cible à atteindre (0 pour désactiver)",
+          "enabled_sensors": "Sélectionnez les capteurs à activer",
+          "notifications_enabled": "Être notifié des changements significatifs de rang",
+          "notification_rank_threshold": "Amélioration minimale du rang pour déclencher une notification",
+          "monthly_rank_goal": "Objectif de rang mensuel à atteindre"
+        }
       }
     }
   },
   "entity": {
     "sensor": {
-      "rank": {
-        "name": "Rang"
-      },
-      "month_rank": {
-        "name": "Rang mensuel"
-      },
-      "discovered_wifi_gps": {
-        "name": "Réseaux WiFi avec GPS"
-      },
-      "discovered_wifi": {
-        "name": "Réseaux WiFi découverts"
-      },
-      "discovered_cell_gps": {
-        "name": "Antennes relais avec GPS"
-      },
-      "discovered_cell": {
-        "name": "Antennes relais découvertes"
-      },
-      "discovered_bt_gps": {
-        "name": "Appareils Bluetooth avec GPS"
-      },
-      "discovered_bt": {
-        "name": "Appareils Bluetooth découverts"
-      },
-      "total_wifi_locations": {
-        "name": "Total emplacements WiFi"
+      "rank": { "name": "Rang" },
+      "month_rank": { "name": "Rang mensuel" },
+      "discovered_wifi_gps": { "name": "Réseaux WiFi avec GPS" },
+      "discovered_wifi": { "name": "Réseaux WiFi découverts" },
+      "discovered_cell_gps": { "name": "Antennes relais avec GPS" },
+      "discovered_cell": { "name": "Antennes relais découvertes" },
+      "discovered_bt_gps": { "name": "Appareils Bluetooth avec GPS" },
+      "discovered_bt": { "name": "Appareils Bluetooth découverts" },
+      "total_wifi_locations": { "name": "Total emplacements WiFi" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Actif ce mois" },
+      "active_this_week": { "name": "Actif cette semaine" },
+      "rank_improved": { "name": "Rang amélioré" },
+      "goal_reached": { "name": "Objectif atteint" },
+      "top_performer": { "name": "Meilleur performeur" },
+      "monthly_goal_on_track": { "name": "Objectif mensuel en bonne voie" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Forcer la mise à jour",
+      "description": "Forcer une mise à jour immédiate des données Wigle",
+      "fields": {
+        "username": {
+          "name": "Nom d'utilisateur",
+          "description": "Nom d'utilisateur Wigle à mettre à jour"
+        }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Définir l'objectif de rang",
+      "description": "Définir des objectifs de classement pour un utilisateur Wigle",
+      "fields": {
+        "username": {
+          "name": "Nom d'utilisateur",
+          "description": "Nom d'utilisateur Wigle"
+        },
+        "goal": {
+          "name": "Objectif de rang",
+          "description": "Rang global cible"
+        },
+        "monthly_goal": {
+          "name": "Objectif mensuel",
+          "description": "Rang mensuel cible (optionnel)"
+        }
+      }
+    },
+    "reset_statistics": {
+      "name": "Réinitialiser les statistiques",
+      "description": "Réinitialiser le cache des statistiques et forcer la récupération de nouvelles données",
+      "fields": {
+        "username": {
+          "name": "Nom d'utilisateur",
+          "description": "Nom d'utilisateur Wigle à réinitialiser"
+        }
       }
     }
   }

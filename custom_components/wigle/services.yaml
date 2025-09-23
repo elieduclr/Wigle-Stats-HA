@@ -1,0 +1,56 @@
+force_update:
+  name: Force Update
+  description: Force an immediate update of Wigle data for a specific user
+  target:
+    integration: wigle
+  fields:
+    username:
+      name: Username
+      description: Wigle username to update
+      required: true
+      selector:
+        text:
+
+set_rank_goal:
+  name: Set Rank Goal
+  description: Set rank goals for a Wigle user
+  target:
+    integration: wigle
+  fields:
+    username:
+      name: Username
+      description: Wigle username
+      required: true
+      selector:
+        text:
+    goal:
+      name: Rank Goal
+      description: Target global rank to achieve
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 999999
+          mode: box
+    monthly_goal:
+      name: Monthly Rank Goal
+      description: Target monthly rank to achieve (optional)
+      required: false
+      selector:
+        number:
+          min: 1
+          max: 99999
+          mode: box
+
+reset_statistics:
+  name: Reset Statistics
+  description: Reset cached statistics and force fresh data retrieval
+  target:
+    integration: wigle
+  fields:
+    username:
+      name: Username
+      description: Wigle username to reset
+      required: true
+      selector:
+        text:

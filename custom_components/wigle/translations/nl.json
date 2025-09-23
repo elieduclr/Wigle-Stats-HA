@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Wigle WiFi-netwerkstatistieken",
-        "description": "Voer je Wigle.net-inloggegevens in om toegang te krijgen tot de statistieken van je WiFi-netwerken.",
+        "description": "Voer je Wigle.net-gegevens in om toegang te krijgen tot je WiFi-netwerkstatistieken.",
         "data": {
           "username": "Gebruikersnaam",
           "api_name": "API-naam (AID...)",
@@ -14,7 +14,7 @@
     "error": {
       "cannot_connect": "Kan geen verbinding maken met de Wigle API",
       "invalid_auth": "Ongeldige authenticatiegegevens",
-      "unknown": "Er is een onverwachte fout opgetreden"
+      "unknown": "Onverwachte fout opgetreden"
     },
     "abort": {
       "already_configured": "Account is al geconfigureerd"
@@ -23,39 +23,70 @@
   "options": {
     "step": {
       "init": {
-        "title": "Opties voor Wigle WiFi-statistieken",
-        "description": "Configureer de opties voor je Wigle-integratie."
+        "title": "Opties voor Wigle WiFi-netwerkstatistieken",
+        "description": "Configureer opties voor je Wigle-integratie.",
+        "data": {
+          "update_interval": "Update-interval (minuten)",
+          "rank_goal": "Rank-doel (0 = uitgeschakeld)",
+          "enabled_sensors": "Ingeschakelde sensoren",
+          "notifications_enabled": "Meldingen inschakelen",
+          "notification_rank_threshold": "Drempel voor rangwijziging voor meldingen",
+          "monthly_rank_goal": "Maandelijks rank-doel (0 = uitgeschakeld)"
+        },
+        "data_description": {
+          "update_interval": "Hoe vaak gegevens bijwerken (30-1440 minuten)",
+          "rank_goal": "Doel globale rang om te bereiken (0 om uit te schakelen)",
+          "enabled_sensors": "Selecteer welke sensoren ingeschakeld moeten worden",
+          "notifications_enabled": "Ontvang meldingen bij significante rangwijzigingen",
+          "notification_rank_threshold": "Minimale rangverbetering om melding te activeren",
+          "monthly_rank_goal": "Doel voor maandelijkse rang om te bereiken"
+        }
       }
     }
   },
   "entity": {
     "sensor": {
-      "rank": {
-        "name": "Rang"
-      },
-      "month_rank": {
-        "name": "Maandelijkse rang"
-      },
-      "discovered_wifi_gps": {
-        "name": "WiFi-netwerken met GPS"
-      },
-      "discovered_wifi": {
-        "name": "Ontdekte WiFi-netwerken"
-      },
-      "discovered_cell_gps": {
-        "name": "Basisstations met GPS"
-      },
-      "discovered_cell": {
-        "name": "Ontdekte basisstations"
-      },
-      "discovered_bt_gps": {
-        "name": "Bluetooth-apparaten met GPS"
-      },
-      "discovered_bt": {
-        "name": "Ontdekte Bluetooth-apparaten"
-      },
-      "total_wifi_locations": {
-        "name": "Totaal aantal WiFi-locaties"
+      "rank": { "name": "Rank" },
+      "month_rank": { "name": "Maandelijkse rank" },
+      "discovered_wifi_gps": { "name": "WiFi-netwerken met GPS" },
+      "discovered_wifi": { "name": "Ontdekte WiFi-netwerken" },
+      "discovered_cell_gps": { "name": "Bascell-torens met GPS" },
+      "discovered_cell": { "name": "Ontdekte bascell-torens" },
+      "discovered_bt_gps": { "name": "Bluetooth-apparaten met GPS" },
+      "discovered_bt": { "name": "Ontdekte Bluetooth-apparaten" },
+      "total_wifi_locations": { "name": "Totaal WiFi-locaties" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Actief deze maand" },
+      "active_this_week": { "name": "Actief deze week" },
+      "rank_improved": { "name": "Rank verbeterd" },
+      "goal_reached": { "name": "Doel bereikt" },
+      "top_performer": { "name": "Toppresteerder" },
+      "monthly_goal_on_track": { "name": "Maandelijks doel op schema" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Forceer update",
+      "description": "Forceer een onmiddellijke update van Wigle-gegevens",
+      "fields": {
+        "username": { "name": "Gebruikersnaam", "description": "Wigle-gebruikersnaam om bij te werken" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Stel rank-doel in",
+      "description": "Stel rank-doelen in voor een Wigle-gebruiker",
+      "fields": {
+        "username": { "name": "Gebruikersnaam", "description": "Wigle-gebruikersnaam" },
+        "goal": { "name": "Rank-doel", "description": "Gewenste globale rang" },
+        "monthly_goal": { "name": "Maandelijks rank-doel", "description": "Gewenste maandelijkse rang (optioneel)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Reset statistieken",
+      "description": "Reset gecachte statistieken en forceer nieuwe gegevensophaling",
+      "fields": {
+        "username": { "name": "Gebruikersnaam", "description": "Wigle-gebruikersnaam om te resetten" }
       }
     }
   }
