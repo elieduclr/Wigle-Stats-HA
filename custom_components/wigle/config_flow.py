@@ -98,7 +98,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
 
     def __init__(self, config_entry: config_entries.ConfigEntry):
         """Initialize options flow."""
-        self.config_entry = config_entry
+        # Ne plus assigner directement config_entry - déprécié
+        self._config_entry = config_entry
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
@@ -113,23 +114,23 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         options_schema = vol.Schema({
             vol.Optional(
                 "update_interval", 
-                default=self.config_entry.options.get("update_interval", 60)
+                default=self._config_entry.options.get("update_interval", 60)
             ): vol.All(vol.Coerce(int), vol.Range(min=30, max=1440)),
             vol.Optional(
                 "rank_goal", 
-                default=self.config_entry.options.get("rank_goal", 0)
+                default=self._config_entry.options.get("rank_goal", 0)
             ): vol.All(vol.Coerce(int), vol.Range(min=0)),
             vol.Optional(
                 "enabled_sensors", 
-                default=self.config_entry.options.get("enabled_sensors", list(SENSOR_TYPES.keys()))
+                default=self._config_entry.options.get("enabled_sensors", list(SENSOR_TYPES.keys()))
             ): cv.multi_select(sensor_options),
             vol.Optional(
                 "notifications_enabled", 
-                default=self.config_entry.options.get("notifications_enabled", False)
+                default=self._config_entry.options.get("notifications_enabled", False)
             ): bool,
             vol.Optional(
                 "notification_rank_threshold",
-                default=self.config_entry.options.get("notification_rank_threshold", 100)
+                default=self._config_entry.options.get("notification_rank_threshold", 100)
             ): vol.All(vol.Coerce(int), vol.Range(min=1)),
         })
 

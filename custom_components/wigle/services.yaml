@@ -1,8 +1,6 @@
 force_update:
   name: Force Update
   description: Force an immediate update of Wigle data for a specific user
-  target:
-    integration: wigle
   fields:
     username:
       name: Username
@@ -14,8 +12,6 @@ force_update:
 set_rank_goal:
   name: Set Rank Goal
   description: Set rank goals for a Wigle user
-  target:
-    integration: wigle
   fields:
     username:
       name: Username
@@ -45,8 +41,6 @@ set_rank_goal:
 reset_statistics:
   name: Reset Statistics
   description: Reset cached statistics and force fresh data retrieval
-  target:
-    integration: wigle
   fields:
     username:
       name: Username
