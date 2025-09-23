@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Statystyki sieci WiFi Wigle",
-        "description": "Wprowadź dane logowania do Wigle.net, aby uzyskać dostęp do statystyk swoich sieci WiFi.",
+        "description": "Wprowadź dane logowania Wigle.net, aby uzyskać dostęp do statystyk sieci WiFi.",
         "data": {
           "username": "Nazwa użytkownika",
           "api_name": "Nazwa API (AID...)",
@@ -12,7 +12,7 @@
       }
     },
     "error": {
-      "cannot_connect": "Nie udało się połączyć z API Wigle",
+      "cannot_connect": "Nie można połączyć się z API Wigle",
       "invalid_auth": "Nieprawidłowe dane uwierzytelniające",
       "unknown": "Wystąpił nieoczekiwany błąd"
     },
@@ -23,22 +23,71 @@
   "options": {
     "step": {
       "init": {
-        "title": "Opcje statystyk Wigle WiFi",
-        "description": "Skonfiguruj opcje dla integracji Wigle."
+        "title": "Opcje statystyk WiFi Wigle",
+        "description": "Skonfiguruj opcje dla integracji Wigle.",
+        "data": {
+          "update_interval": "Interwał aktualizacji (minuty)",
+          "rank_goal": "Cel rankingu (0 = wyłączone)",
+          "enabled_sensors": "Włączone czujniki",
+          "notifications_enabled": "Włącz powiadomienia",
+          "notification_rank_threshold": "Próg zmiany rankingu dla powiadomień",
+          "monthly_rank_goal": "Miesięczny cel rankingu (0 = wyłączony)"
+        },
+        "data_description": {
+          "update_interval": "Jak często aktualizować dane (30-1440 minut)",
+          "rank_goal": "Docelowy globalny ranking do osiągnięcia (0 aby wyłączyć)",
+          "enabled_sensors": "Wybierz, które czujniki włączyć",
+          "notifications_enabled": "Otrzymuj powiadomienia o istotnych zmianach rankingu",
+          "notification_rank_threshold": "Minimalna poprawa rankingu aby wywołać powiadomienie",
+          "monthly_rank_goal": "Docelowy miesięczny ranking do osiągnięcia"
+        }
       }
     }
   },
   "entity": {
     "sensor": {
-      "rank": { "name": "Ranga" },
-      "month_rank": { "name": "Ranga miesięczna" },
+      "rank": { "name": "Ranking" },
+      "month_rank": { "name": "Miesięczny ranking" },
       "discovered_wifi_gps": { "name": "Sieci WiFi z GPS" },
       "discovered_wifi": { "name": "Wykryte sieci WiFi" },
-      "discovered_cell_gps": { "name": "Stacje bazowe z GPS" },
-      "discovered_cell": { "name": "Wykryte stacje bazowe" },
+      "discovered_cell_gps": { "name": "Stacje komórkowe z GPS" },
+      "discovered_cell": { "name": "Wykryte stacje komórkowe" },
       "discovered_bt_gps": { "name": "Urządzenia Bluetooth z GPS" },
       "discovered_bt": { "name": "Wykryte urządzenia Bluetooth" },
       "total_wifi_locations": { "name": "Łączna liczba lokalizacji WiFi" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Aktywny w tym miesiącu" },
+      "active_this_week": { "name": "Aktywny w tym tygodniu" },
+      "rank_improved": { "name": "Ranking poprawiony" },
+      "goal_reached": { "name": "Cel osiągnięty" },
+      "top_performer": { "name": "Najlepszy wykonawca" },
+      "monthly_goal_on_track": { "name": "Miesięczny cel na dobrej drodze" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Wymuś aktualizację",
+      "description": "Wymuś natychmiastową aktualizację danych Wigle",
+      "fields": {
+        "username": { "name": "Nazwa użytkownika", "description": "Nazwa użytkownika Wigle do aktualizacji" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Ustaw cel rankingu",
+      "description": "Ustaw cele rankingu dla użytkownika Wigle",
+      "fields": {
+        "username": { "name": "Nazwa użytkownika", "description": "Nazwa użytkownika Wigle" },
+        "goal": { "name": "Cel rankingu", "description": "Docelowy globalny ranking" },
+        "monthly_goal": { "name": "Miesięczny cel rankingu", "description": "Docelowy miesięczny ranking (opcjonalne)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Resetuj statystyki",
+      "description": "Zresetuj buforowane statystyki i wymuś pobranie świeżych danych",
+      "fields": {
+        "username": { "name": "Nazwa użytkownika", "description": "Nazwa użytkownika Wigle do zresetowania" }
+      }
     }
   }
 }

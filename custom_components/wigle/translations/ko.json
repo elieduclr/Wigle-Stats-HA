@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Wigle WiFi 네트워크 통계",
-        "description": "WiFi 네트워크 통계에 접근하려면 Wigle.net 자격 증명을 입력하세요.",
+        "description": "WiFi 네트워크 통계에 액세스하려면 Wigle.net 자격 증명을 입력하세요.",
         "data": {
           "username": "사용자 이름",
           "api_name": "API 이름 (AID...)",
@@ -12,8 +12,8 @@
       }
     },
     "error": {
-      "cannot_connect": "Wigle API에 연결할 수 없습니다",
-      "invalid_auth": "잘못된 인증 정보",
+      "cannot_connect": "Wigle API에 연결하지 못했습니다",
+      "invalid_auth": "잘못된 인증 자격 증명",
       "unknown": "예기치 않은 오류가 발생했습니다"
     },
     "abort": {
@@ -23,8 +23,24 @@
   "options": {
     "step": {
       "init": {
-        "title": "Wigle WiFi 통계 옵션",
-        "description": "Wigle 통합 옵션을 구성하세요."
+        "title": "Wigle WiFi 네트워크 통계 옵션",
+        "description": "Wigle 통합의 옵션을 구성합니다.",
+        "data": {
+          "update_interval": "업데이트 간격(분)",
+          "rank_goal": "순위 목표(0 = 사용 안 함)",
+          "enabled_sensors": "활성화된 센서",
+          "notifications_enabled": "알림 활성화",
+          "notification_rank_threshold": "알림을 위한 순위 변경 임계값",
+          "monthly_rank_goal": "월간 순위 목표(0 = 사용 안 함)"
+        },
+        "data_description": {
+          "update_interval": "데이터 업데이트 빈도 (30-1440분)",
+          "rank_goal": "달성하려는 글로벌 순위 목표 (0은 비활성화)",
+          "enabled_sensors": "활성화할 센서를 선택하세요",
+          "notifications_enabled": "중요한 순위 변경에 대해 알림 받기",
+          "notification_rank_threshold": "알림을 트리거할 최소 순위 개선",
+          "monthly_rank_goal": "달성할 월간 순위 목표"
+        }
       }
     }
   },
@@ -32,13 +48,61 @@
     "sensor": {
       "rank": { "name": "순위" },
       "month_rank": { "name": "월간 순위" },
-      "discovered_wifi_gps": { "name": "GPS 포함 WiFi 네트워크" },
-      "discovered_wifi": { "name": "발견된 WiFi 네트워크" },
-      "discovered_cell_gps": { "name": "GPS 포함 기지국" },
-      "discovered_cell": { "name": "발견된 기지국" },
-      "discovered_bt_gps": { "name": "GPS 포함 블루투스 기기" },
-      "discovered_bt": { "name": "발견된 블루투스 기기" },
-      "total_wifi_locations": { "name": "총 WiFi 위치" }
+      "discovered_wifi_gps": { "name": "GPS가 있는 WiFi 네트워크" },
+      "discovered_wifi": { "name": "검색된 WiFi 네트워크" },
+      "discovered_cell_gps": { "name": "GPS가 있는 기지국" },
+      "discovered_cell": { "name": "검색된 기지국" },
+      "discovered_bt_gps": { "name": "GPS가 있는 Bluetooth 기기" },
+      "discovered_bt": { "name": "검색된 Bluetooth 기기" },
+      "total_wifi_locations": { "name": "총 WiFi 위치 수" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "이번 달 활성" },
+      "active_this_week": { "name": "이번 주 활성" },
+      "rank_improved": { "name": "순위 향상" },
+      "goal_reached": { "name": "목표 달성" },
+      "top_performer": { "name": "최고 성과자" },
+      "monthly_goal_on_track": { "name": "월간 목표 진행 중" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "업데이트 강제",
+      "description": "Wigle 데이터의 즉시 업데이트를 강제합니다",
+      "fields": {
+        "username": {
+          "name": "사용자 이름",
+          "description": "업데이트할 Wigle 사용자 이름"
+        }
+      }
+    },
+    "set_rank_goal": {
+      "name": "순위 목표 설정",
+      "description": "Wigle 사용자의 순위 목표를 설정합니다",
+      "fields": {
+        "username": {
+          "name": "사용자 이름",
+          "description": "Wigle 사용자 이름"
+        },
+        "goal": {
+          "name": "순위 목표",
+          "description": "목표 글로벌 순위"
+        },
+        "monthly_goal": {
+          "name": "월간 순위 목표",
+          "description": "목표 월간 순위 (선택 사항)"
+        }
+      }
+    },
+    "reset_statistics": {
+      "name": "통계 재설정",
+      "description": "캐시된 통계를 재설정하고 새 데이터 가져오기를 강제합니다",
+      "fields": {
+        "username": {
+          "name": "사용자 이름",
+          "description": "재설정할 Wigle 사용자 이름"
+        }
+      }
     }
   }
 }

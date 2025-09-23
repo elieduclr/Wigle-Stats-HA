@@ -2,18 +2,18 @@
   "config": {
     "step": {
       "user": {
-        "title": "Wigle WiFi ağ istatistikleri",
-        "description": "WiFi ağ istatistiklerine erişmek için Wigle.net kimlik bilgilerinizi girin.",
+        "title": "Wigle WiFi Ağ İstatistikleri",
+        "description": "WiFi ağ istatistiklerinize erişmek için Wigle.net kimlik bilgilerinizi girin.",
         "data": {
           "username": "Kullanıcı adı",
-          "api_name": "API adı (AID...)",
-          "api_token": "API anahtarı"
+          "api_name": "API Adı (AID...)",
+          "api_token": "API Jetonu"
         }
       }
     },
     "error": {
-      "cannot_connect": "Wigle API'sine bağlanılamadı",
-      "invalid_auth": "Geçersiz kimlik bilgileri",
+      "cannot_connect": "Wigle API'ye bağlanılamadı",
+      "invalid_auth": "Geçersiz kimlik doğrulama bilgileri",
       "unknown": "Beklenmeyen bir hata oluştu"
     },
     "abort": {
@@ -23,22 +23,71 @@
   "options": {
     "step": {
       "init": {
-        "title": "Wigle WiFi istatistikleri seçenekleri",
-        "description": "Wigle entegrasyonunuz için seçenekleri yapılandırın."
+        "title": "Wigle WiFi Ağ İstatistikleri Seçenekleri",
+        "description": "Wigle entegrasyonunuz için seçenekleri yapılandırın.",
+        "data": {
+          "update_interval": "Güncelleme aralığı (dakika)",
+          "rank_goal": "Sıralama hedefi (0 = devre dışı)",
+          "enabled_sensors": "Etkin sensörler",
+          "notifications_enabled": "Bildirimleri etkinleştir",
+          "notification_rank_threshold": "Bildirimler için sıralama değişikliği eşiği",
+          "monthly_rank_goal": "Aylık sıralama hedefi (0 = devre dışı)"
+        },
+        "data_description": {
+          "update_interval": "Verilerin ne sıklıkla güncelleneceği (30-1440 dakika)",
+          "rank_goal": "Ulaşılması hedeflenen küresel sıralama (devre dışı bırakmak için 0)",
+          "enabled_sensors": "Etkinleştirilecek sensörleri seçin",
+          "notifications_enabled": "Önemli sıralama değişiklikleri hakkında bildirim alın",
+          "notification_rank_threshold": "Bildirim tetiklemek için minimum sıralama iyileşmesi",
+          "monthly_rank_goal": "Ulaşılması hedeflenen aylık sıralama"
+        }
       }
     }
   },
   "entity": {
     "sensor": {
-      "rank": { "name": "Sıra" },
-      "month_rank": { "name": "Aylık sıra" },
-      "discovered_wifi_gps": { "name": "GPS'li WiFi ağları" },
-      "discovered_wifi": { "name": "Keşfedilen WiFi ağları" },
-      "discovered_cell_gps": { "name": "GPS'li baz istasyonları" },
-      "discovered_cell": { "name": "Keşfedilen baz istasyonları" },
-      "discovered_bt_gps": { "name": "GPS'li Bluetooth cihazları" },
-      "discovered_bt": { "name": "Keşfedilen Bluetooth cihazları" },
-      "total_wifi_locations": { "name": "Toplam WiFi konumu" }
+      "rank": { "name": "Sıralama" },
+      "month_rank": { "name": "Aylık sıralama" },
+      "discovered_wifi_gps": { "name": "GPS'li WiFi Ağları" },
+      "discovered_wifi": { "name": "Bulunan WiFi Ağları" },
+      "discovered_cell_gps": { "name": "GPS'li Hücre Kuleleri" },
+      "discovered_cell": { "name": "Bulunan Hücre Kuleleri" },
+      "discovered_bt_gps": { "name": "GPS'li Bluetooth Cihazları" },
+      "discovered_bt": { "name": "Bulunan Bluetooth Cihazları" },
+      "total_wifi_locations": { "name": "Toplam WiFi Konumları" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Bu ay aktif" },
+      "active_this_week": { "name": "Bu hafta aktif" },
+      "rank_improved": { "name": "Sıralama iyileşti" },
+      "goal_reached": { "name": "Hedefe ulaşıldı" },
+      "top_performer": { "name": "En iyi performans" },
+      "monthly_goal_on_track": { "name": "Aylık hedef yolunda" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Güncellemeyi Zorla",
+      "description": "Wigle verilerinin hemen güncellenmesini zorla",
+      "fields": {
+        "username": { "name": "Kullanıcı adı", "description": "Güncellenecek Wigle kullanıcı adı" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Sıralama Hedefi Belirle",
+      "description": "Bir Wigle kullanıcısı için sıralama hedefleri belirle",
+      "fields": {
+        "username": { "name": "Kullanıcı adı", "description": "Wigle kullanıcı adı" },
+        "goal": { "name": "Sıralama Hedefi", "description": "Hedef küresel sıralama" },
+        "monthly_goal": { "name": "Aylık sıralama hedefi", "description": "Hedef aylık sıralama (isteğe bağlı)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "İstatistikleri Sıfırla",
+      "description": "Önbelleğe alınmış istatistikleri sıfırla ve yeni veri alınmasını zorla",
+      "fields": {
+        "username": { "name": "Kullanıcı adı", "description": "Sıfırlanacak Wigle kullanıcı adı" }
+      }
     }
   }
 }

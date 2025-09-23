@@ -2,17 +2,17 @@
   "config": {
     "step": {
       "user": {
-        "title": "Estatísticas de redes WiFi Wigle",
+        "title": "Estatísticas de redes WiFi do Wigle",
         "description": "Insira suas credenciais do Wigle.net para acessar as estatísticas das suas redes WiFi.",
         "data": {
-          "username": "Nome de usuário",
+          "username": "Nome de utilizador",
           "api_name": "Nome da API (AID...)",
           "api_token": "Token da API"
         }
       }
     },
     "error": {
-      "cannot_connect": "Falha ao conectar à API Wigle",
+      "cannot_connect": "Não foi possível conectar à API do Wigle",
       "invalid_auth": "Credenciais de autenticação inválidas",
       "unknown": "Ocorreu um erro inesperado"
     },
@@ -23,22 +23,71 @@
   "options": {
     "step": {
       "init": {
-        "title": "Opções das estatísticas Wigle WiFi",
-        "description": "Configure as opções para sua integração Wigle."
+        "title": "Opções das estatísticas WiFi do Wigle",
+        "description": "Configure opções para a sua integração Wigle.",
+        "data": {
+          "update_interval": "Intervalo de atualização (minutos)",
+          "rank_goal": "Meta de ranking (0 = desativado)",
+          "enabled_sensors": "Sensores ativados",
+          "notifications_enabled": "Ativar notificações",
+          "notification_rank_threshold": "Limiar de alteração de ranking para notificações",
+          "monthly_rank_goal": "Meta de ranking mensal (0 = desativado)"
+        },
+        "data_description": {
+          "update_interval": "Com que frequência atualizar dados (30-1440 minutos)",
+          "rank_goal": "Posição global alvo a atingir (0 para desativar)",
+          "enabled_sensors": "Selecione quais sensores ativar",
+          "notifications_enabled": "Receber notificações sobre mudanças significativas no ranking",
+          "notification_rank_threshold": "Melhoria mínima do ranking para acionar notificação",
+          "monthly_rank_goal": "Meta de ranking mensal a atingir"
+        }
       }
     }
   },
   "entity": {
     "sensor": {
-      "rank": { "name": "Classificação" },
-      "month_rank": { "name": "Classificação mensal" },
+      "rank": { "name": "Posição" },
+      "month_rank": { "name": "Posição mensal" },
       "discovered_wifi_gps": { "name": "Redes WiFi com GPS" },
-      "discovered_wifi": { "name": "Redes WiFi descobertas" },
-      "discovered_cell_gps": { "name": "Torres de celular com GPS" },
-      "discovered_cell": { "name": "Torres de celular descobertas" },
+      "discovered_wifi": { "name": "Redes WiFi detectadas" },
+      "discovered_cell_gps": { "name": "Torres celulares com GPS" },
+      "discovered_cell": { "name": "Torres celulares detectadas" },
       "discovered_bt_gps": { "name": "Dispositivos Bluetooth com GPS" },
-      "discovered_bt": { "name": "Dispositivos Bluetooth descobertos" },
+      "discovered_bt": { "name": "Dispositivos Bluetooth detectados" },
       "total_wifi_locations": { "name": "Total de locais WiFi" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Ativo este mês" },
+      "active_this_week": { "name": "Ativo esta semana" },
+      "rank_improved": { "name": "Posição melhorada" },
+      "goal_reached": { "name": "Meta alcançada" },
+      "top_performer": { "name": "Melhor desempenho" },
+      "monthly_goal_on_track": { "name": "Meta mensal no caminho" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Forçar atualização",
+      "description": "Forçar uma atualização imediata dos dados do Wigle",
+      "fields": {
+        "username": { "name": "Nome de utilizador", "description": "Nome de utilizador Wigle para atualizar" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Definir meta de ranking",
+      "description": "Definir metas de ranking para um utilizador Wigle",
+      "fields": {
+        "username": { "name": "Nome de utilizador", "description": "Nome de utilizador Wigle" },
+        "goal": { "name": "Meta de ranking", "description": "Posição global alvo" },
+        "monthly_goal": { "name": "Meta de ranking mensal", "description": "Posição mensal alvo (opcional)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Redefinir estatísticas",
+      "description": "Redefinir estatísticas em cache e forçar a recuperação de dados novos",
+      "fields": {
+        "username": { "name": "Nome de utilizador", "description": "Nome de utilizador Wigle para redefinir" }
+      }
     }
   }
 }

@@ -2,17 +2,17 @@
   "config": {
     "step": {
       "user": {
-        "title": "Wigle WiFiネットワークの統計",
+        "title": "WigleのWiFiネットワーク統計",
         "description": "WiFiネットワークの統計にアクセスするために、Wigle.netの認証情報を入力してください。",
         "data": {
           "username": "ユーザー名",
-          "api_name": "API名（AIDなど）",
+          "api_name": "API名（AID...）",
           "api_token": "APIトークン"
         }
       }
     },
     "error": {
-      "cannot_connect": "Wigle APIへの接続に失敗しました",
+      "cannot_connect": "Wigle APIに接続できませんでした",
       "invalid_auth": "認証情報が無効です",
       "unknown": "予期しないエラーが発生しました"
     },
@@ -23,39 +23,85 @@
   "options": {
     "step": {
       "init": {
-        "title": "Wigle WiFi統計のオプション",
-        "description": "Wigle統合のオプションを設定してください。"
+        "title": "Wigle WiFiネットワーク統計のオプション",
+        "description": "Wigle統合のオプションを設定します。",
+        "data": {
+          "update_interval": "更新間隔（分）",
+          "rank_goal": "ランキング目標（0 = 無効）",
+          "enabled_sensors": "有効なセンサー",
+          "notifications_enabled": "通知を有効にする",
+          "notification_rank_threshold": "通知のためのランキング変化の閾値",
+          "monthly_rank_goal": "月間ランキング目標（0 = 無効）"
+        },
+        "data_description": {
+          "update_interval": "データを更新する頻度（30〜1440分）",
+          "rank_goal": "達成する目標のグローバルランキング（0で無効）",
+          "enabled_sensors": "有効にするセンサーを選択してください",
+          "notifications_enabled": "重要なランキング変化を通知する",
+          "notification_rank_threshold": "通知をトリガーするための最小ランキング改善",
+          "monthly_rank_goal": "達成する月間ランキング目標"
+        }
       }
     }
   },
   "entity": {
     "sensor": {
-      "rank": {
-        "name": "ランク"
-      },
-      "month_rank": {
-        "name": "月間ランク"
-      },
-      "discovered_wifi_gps": {
-        "name": "GPS付きWiFiネットワーク"
-      },
-      "discovered_wifi": {
-        "name": "検出されたWiFiネットワーク"
-      },
-      "discovered_cell_gps": {
-        "name": "GPS付き基地局"
-      },
-      "discovered_cell": {
-        "name": "検出された基地局"
-      },
-      "discovered_bt_gps": {
-        "name": "GPS付きBluetooth機器"
-      },
-      "discovered_bt": {
-        "name": "検出されたBluetooth機器"
-      },
-      "total_wifi_locations": {
-        "name": "WiFiロケーション合計"
+      "rank": { "name": "ランキング" },
+      "month_rank": { "name": "月間ランキング" },
+      "discovered_wifi_gps": { "name": "GPS付きWiFiネットワーク" },
+      "discovered_wifi": { "name": "検出されたWiFiネットワーク" },
+      "discovered_cell_gps": { "name": "GPS付き携帯基地局" },
+      "discovered_cell": { "name": "検出された携帯基地局" },
+      "discovered_bt_gps": { "name": "GPS付きBluetoothデバイス" },
+      "discovered_bt": { "name": "検出されたBluetoothデバイス" },
+      "total_wifi_locations": { "name": "総WiFiロケーション数" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "今月アクティブ" },
+      "active_this_week": { "name": "今週アクティブ" },
+      "rank_improved": { "name": "ランキングが改善" },
+      "goal_reached": { "name": "目標達成" },
+      "top_performer": { "name": "トップパフォーマー" },
+      "monthly_goal_on_track": { "name": "月間目標が順調" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "強制更新",
+      "description": "Wigleデータの即時更新を強制します",
+      "fields": {
+        "username": {
+          "name": "ユーザー名",
+          "description": "更新するWigleのユーザー名"
+        }
+      }
+    },
+    "set_rank_goal": {
+      "name": "ランキング目標を設定",
+      "description": "Wigleユーザーのランキング目標を設定します",
+      "fields": {
+        "username": {
+          "name": "ユーザー名",
+          "description": "Wigleのユーザー名"
+        },
+        "goal": {
+          "name": "ランキング目標",
+          "description": "目標のグローバルランキング"
+        },
+        "monthly_goal": {
+          "name": "月間ランキング目標",
+          "description": "目標の月間ランキング（任意）"
+        }
+      }
+    },
+    "reset_statistics": {
+      "name": "統計をリセット",
+      "description": "キャッシュされた統計をリセットし、新しいデータ取得を強制します",
+      "fields": {
+        "username": {
+          "name": "ユーザー名",
+          "description": "リセットするWigleのユーザー名"
+        }
       }
     }
   }

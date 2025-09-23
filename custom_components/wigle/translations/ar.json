@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "إحصائيات شبكات WiFi من Wigle",
-        "description": "أدخل بيانات تسجيل الدخول إلى Wigle.net للوصول إلى إحصائيات شبكات WiFi الخاصة بك.",
+        "description": "أدخل بيانات اعتماد Wigle.net للوصول إلى إحصائيات شبكات WiFi الخاصة بك.",
         "data": {
           "username": "اسم المستخدم",
           "api_name": "اسم API (AID...)",
@@ -13,7 +13,7 @@
     },
     "error": {
       "cannot_connect": "فشل الاتصال بواجهة Wigle API",
-      "invalid_auth": "بيانات اعتماد غير صالحة",
+      "invalid_auth": "بيانات اعتماد المصادقة غير صالحة",
       "unknown": "حدث خطأ غير متوقع"
     },
     "abort": {
@@ -24,7 +24,23 @@
     "step": {
       "init": {
         "title": "خيارات إحصائيات Wigle WiFi",
-        "description": "قم بتكوين خيارات تكامل Wigle الخاص بك."
+        "description": "قم بتكوين خيارات تكامل Wigle الخاص بك.",
+        "data": {
+          "update_interval": "فاصل التحديث (بالدقائق)",
+          "rank_goal": "هدف الترتيب (0 = معطل)",
+          "enabled_sensors": "المستشعرات المفعلة",
+          "notifications_enabled": "تمكين الإشعارات",
+          "notification_rank_threshold": "عتبة تغيير الترتيب للإشعارات",
+          "monthly_rank_goal": "هدف الترتيب الشهري (0 = معطل)"
+        },
+        "data_description": {
+          "update_interval": "عدد الدقائق بين التحديثات (30-1440)",
+          "rank_goal": "الترتيب العالمي المستهدف لتحقيقه (0 لتعطيل)",
+          "enabled_sensors": "اختر المستشعرات التي تريد تفعيلها",
+          "notifications_enabled": "تلقي إشعارات عند حدوث تغييرات كبيرة في الترتيب",
+          "notification_rank_threshold": "التحسن الأدنى في الترتيب لتفعيل الإشعار",
+          "monthly_rank_goal": "هدف الترتيب الشهري المراد تحقيقه"
+        }
       }
     }
   },
@@ -39,6 +55,54 @@
       "discovered_bt_gps": { "name": "أجهزة Bluetooth مع GPS" },
       "discovered_bt": { "name": "أجهزة Bluetooth المكتشفة" },
       "total_wifi_locations": { "name": "إجمالي مواقع WiFi" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "نشط هذا الشهر" },
+      "active_this_week": { "name": "نشط هذا الأسبوع" },
+      "rank_improved": { "name": "تحسّن الترتيب" },
+      "goal_reached": { "name": "تم الوصول للهدف" },
+      "top_performer": { "name": "أداء متميز" },
+      "monthly_goal_on_track": { "name": "الهدف الشهري على المسار الصحيح" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "فرض التحديث",
+      "description": "فرض تحديث فوري لبيانات Wigle",
+      "fields": {
+        "username": {
+          "name": "اسم المستخدم",
+          "description": "اسم مستخدم Wigle للتحديث"
+        }
+      }
+    },
+    "set_rank_goal": {
+      "name": "تعيين هدف الترتيب",
+      "description": "تعيين هدف الترتيب لمستخدم Wigle",
+      "fields": {
+        "username": {
+          "name": "اسم المستخدم",
+          "description": "اسم مستخدم Wigle"
+        },
+        "goal": {
+          "name": "هدف الترتيب",
+          "description": "الترتيب العالمي المستهدف"
+        },
+        "monthly_goal": {
+          "name": "هدف الترتيب الشهري",
+          "description": "الترتيب الشهري المستهدف (اختياري)"
+        }
+      }
+    },
+    "reset_statistics": {
+      "name": "إعادة تعيين الإحصاءات",
+      "description": "إعادة تعيين ذاكرة الإحصاءات المؤقتة وإجبار جلب بيانات جديدة",
+      "fields": {
+        "username": {
+          "name": "اسم المستخدم",
+          "description": "اسم مستخدم Wigle لإعادة التعيين"
+        }
+      }
     }
   }
 }
