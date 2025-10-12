@@ -1,13 +1,13 @@
 {
   "domain": "wigle",
   "name": "Wigle WiFi Network Statistics",
-  "codeowners": ["@elieduclr"],
+  "codeowners": ["@malicaeus"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/elieduclr/Wigle-Stats-HACS",
+  "documentation": "https://github.com/malicaeus/Wigle-Stats-HACS",
   "integration_type": "service",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/elieduclr/Wigle-Stats-HACS/issues",
+  "issue_tracker": "https://github.com/malicaeus/Wigle-Stats-HACS/issues",
   "requirements": ["aiohttp>=3.8.0"],
   "version": "2.0.0"
 }
