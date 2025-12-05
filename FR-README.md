@@ -67,18 +67,26 @@ config/
 └── custom_components/
     └── wigle/
         ├── translations/
+        |   ├── ar.json
+        |   ├── da.json
         |   ├── de.json
+        |   ├── el.json
         |   ├── es.json
+        |   ├── fi.json
         |   ├── fr.json
         |   ├── it.json
         |   ├── ja.json
         |   ├── ko.json
+        |   ├── nb.json
         |   ├── nl.json
         |   ├── pl.json
         |   ├── pt.json
+        |   ├── ro.json
         |   ├── ru.json
+        |   ├── sv.json
         |   ├── tr.json
-        |   └── zh-Hans.json
+        |   ├── zh-Hans.json
+        |   └── zh-Hant.json
         ├── __init__.py
         ├── binary_sensor.py
         ├── config_flow.py
@@ -386,8 +394,8 @@ template:
 ## 🌍 Internationalisation
 
 L'intégration supporte plusieurs langues :
-- 🇺🇸 Anglais
-- 🇫🇷 Français (défaut pour cette version)
+- 🇺🇸 Anglais (par défaut)
+- 🇫🇷 Français
 - 🇩🇪 Allemand
 - 🇪🇸 Espagnol
 - 🇮🇹 Italien
@@ -399,6 +407,13 @@ L'intégration supporte plusieurs langues :
 - 🇷🇺 Russe
 - 🇹🇷 Turc
 - 🇨🇳 Chinois (Simplifié)
+- 🇹🇼 Chinois (Traditionnel)
+- 🇳🇴 Norvégien
+- 🇸🇪 Suédois
+- 🇩🇰 Danois
+- 🇫🇮 Finnois
+- 🇬🇷 Grec
+- 🇷🇴 Roumain
 
 ## 🤝 Contribution et développement
 
@@ -441,12 +456,17 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 
 ## 📈 Journal des modifications
 
-### Version 2.0.0 (Dernière)
+### Version 2.1.0 (Dernière)
+- ✨ **Nouveau** : Support linguistique étendu (7 langues supplémentaires)
+  - Chinois (Traditionnel), Norvégien, Suédois, Danois, Finnois, Grec et Roumain
+- 🌍 **Enrichi** : Support multi-langues couvrant désormais 20 langues
+
+### Version 2.0.0
 - ✨ **Nouveau** : Capteurs binaires pour le suivi d'activité et d'objectifs
 - ✨ **Nouveau** : Options de configuration avancées
 - ✨ **Nouveau** : Services personnalisés pour le contrôle manuel
 - ✨ **Nouveau** : Cache intelligent et récupération d'erreur
-- ✨ **Nouveau** : Support multi-langues
+- ✨ **Nouveau** : Support multi-langues (13 langues)
 - 🔧 **Amélioré** : Client API robuste avec logique de retry
 - 🔧 **Amélioré** : Meilleure gestion d'erreur et diagnostics
 - 🔧 **Enrichi** : Attributs d'entité riches et indicateurs de statut

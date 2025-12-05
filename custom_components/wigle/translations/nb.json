@@ -1,0 +1,93 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi-nettverksstatistikk",
+        "description": "Oppgi dine Wigle.net-credentials for å få tilgang til WiFi-nettverksstatistikken din.",
+        "data": {
+          "username": "Brukernavn",
+          "api_name": "API-navn (AID...)",
+          "api_token": "API-token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kunne ikke koble til Wigle API",
+      "invalid_auth": "Ugyldige autentiseringsopplysninger",
+      "unknown": "Uventet feil oppsto"
+    },
+    "abort": {
+      "already_configured": "Konto er allerede konfigurert"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Alternativer for Wigle WiFi-nettverksstatistikk",
+        "description": "Konfigurer alternativer for Wigle-integrasjonen din.",
+        "data": {
+          "update_interval": "Oppdateringsintervall (minutter)",
+          "rank_goal": "Rangmål (0 = deaktivert)",
+          "enabled_sensors": "Aktiverte sensorer",
+          "notifications_enabled": "Aktiver varsler",
+          "notification_rank_threshold": "Grense for rangendring for varsler",
+          "monthly_rank_goal": "Månedlig rangmål (0 = deaktivert)"
+        },
+        "data_description": {
+          "update_interval": "Hvor ofte å oppdatere data (30–1440 minutter)",
+          "rank_goal": "Mål for global rang å oppnå (0 for å deaktivere)",
+          "enabled_sensors": "Velg hvilke sensorer som skal aktiveres",
+          "notifications_enabled": "Motta varsler om betydelige rangendringer",
+          "notification_rank_threshold": "Minste rangforbedring som utløser varsel",
+          "monthly_rank_goal": "Mål for månedlig rang å oppnå"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "Rang" },
+      "month_rank": { "name": "Månedlig rang" },
+      "discovered_wifi_gps": { "name": "WiFi-nettverk med GPS" },
+      "discovered_wifi": { "name": "Oppdagede WiFi-nettverk" },
+      "discovered_cell_gps": { "name": "Mobiltårn med GPS" },
+      "discovered_cell": { "name": "Oppdagede mobiltårn" },
+      "discovered_bt_gps": { "name": "Bluetooth-enheter med GPS" },
+      "discovered_bt": { "name": "Oppdagede Bluetooth-enheter" },
+      "total_wifi_locations": { "name": "Totalt antall WiFi-lokasjoner" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Aktiv denne måneden" },
+      "active_this_week": { "name": "Aktiv denne uken" },
+      "rank_improved": { "name": "Rang forbedret" },
+      "goal_reached": { "name": "Mål nådd" },
+      "top_performer": { "name": "Topp ytelse" },
+      "monthly_goal_on_track": { "name": "Månedlig mål på sporet" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Tving oppdatering",
+      "description": "Tving en umiddelbar oppdatering av Wigle-data",
+      "fields": {
+        "username": { "name": "Brukernavn", "description": "Wigle-brukernavn som skal oppdateres" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Sett rangmål",
+      "description": "Sett rangmål for en Wigle-bruker",
+      "fields": {
+        "username": { "name": "Brukernavn", "description": "Wigle-brukernavn" },
+        "goal": { "name": "Rangmål", "description": "Mål for global rang" },
+        "monthly_goal": { "name": "Månedlig rangmål", "description": "Mål for månedlig rang (valgfritt)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Nullstill statistikk",
+      "description": "Nullstill bufrede statistikker og tving innhenting av ferske data",
+      "fields": {
+        "username": { "name": "Brukernavn", "description": "Wigle-brukernavn som skal nullstilles" }
+      }
+    }
+  }
+}

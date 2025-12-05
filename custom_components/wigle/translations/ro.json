@@ -1,0 +1,93 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Statistici rețele WiFi Wigle",
+        "description": "Introdu credențialele Wigle.net pentru a accesa statisticile rețelelor tale WiFi.",
+        "data": {
+          "username": "Nume de utilizator",
+          "api_name": "Nume API (AID...)",
+          "api_token": "Token API"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Conexiune eșuată la API-ul Wigle",
+      "invalid_auth": "Credențiale de autentificare invalide",
+      "unknown": "A apărut o eroare neașteptată"
+    },
+    "abort": {
+      "already_configured": "Contul este deja configurat"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opțiuni statistici rețele WiFi Wigle",
+        "description": "Configurează opțiunile pentru integrarea Wigle.",
+        "data": {
+          "update_interval": "Interval actualizare (minute)",
+          "rank_goal": "Obiectiv clasament (0 = dezactivat)",
+          "enabled_sensors": "Senzori activați",
+          "notifications_enabled": "Activează notificări",
+          "notification_rank_threshold": "Prag schimbare clasament pentru notificări",
+          "monthly_rank_goal": "Obiectiv clasament lunar (0 = dezactivat)"
+        },
+        "data_description": {
+          "update_interval": "Cât de des se actualizează datele (30–1440 minute)",
+          "rank_goal": "Clasamentul global țintă de atins (0 pentru dezactivare)",
+          "enabled_sensors": "Selectează ce senzori să fie activați",
+          "notifications_enabled": "Primește notificări pentru schimbări semnificative de clasament",
+          "notification_rank_threshold": "Îmbunătățirea minimă a clasamentului pentru declanșarea notificării",
+          "monthly_rank_goal": "Obiectivul lunar de clasament de atins"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "Clasament" },
+      "month_rank": { "name": "Clasament lunar" },
+      "discovered_wifi_gps": { "name": "Rețele WiFi cu GPS" },
+      "discovered_wifi": { "name": "Rețele WiFi descoperite" },
+      "discovered_cell_gps": { "name": "Turnuri celulare cu GPS" },
+      "discovered_cell": { "name": "Turnuri celulare descoperite" },
+      "discovered_bt_gps": { "name": "Dispozitive Bluetooth cu GPS" },
+      "discovered_bt": { "name": "Dispozitive Bluetooth descoperite" },
+      "total_wifi_locations": { "name": "Număr total locații WiFi" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Activ luna aceasta" },
+      "active_this_week": { "name": "Activ săptămâna aceasta" },
+      "rank_improved": { "name": "Clasament îmbunătățit" },
+      "goal_reached": { "name": "Obiectiv atins" },
+      "top_performer": { "name": "Top performer" },
+      "monthly_goal_on_track": { "name": "Obiectiv lunar pe drumul cel bun" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Forțează actualizare",
+      "description": "Forțează o actualizare imediată a datelor Wigle",
+      "fields": {
+        "username": { "name": "Nume de utilizator", "description": "Nume de utilizator Wigle de actualizat" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Setează obiectiv clasament",
+      "description": "Setează obiective de clasament pentru un utilizator Wigle",
+      "fields": {
+        "username": { "name": "Nume de utilizator", "description": "Nume de utilizator Wigle" },
+        "goal": { "name": "Obiectiv clasament", "description": "Clasament global țintă" },
+        "monthly_goal": { "name": "Obiectiv lunar", "description": "Clasament lunar țintă (opțional)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Resetează statistici",
+      "description": "Resetează statisticile din cache și forțează preluarea de date noi",
+      "fields": {
+        "username": { "name": "Nume de utilizator", "description": "Nume de utilizator Wigle de resetat" }
+      }
+    }
+  }
+}

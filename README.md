@@ -67,18 +67,26 @@ config/
 └── custom_components/
     └── wigle/
         ├── translations/
+        |   ├── ar.json
+        |   ├── da.json
         |   ├── de.json
+        |   ├── el.json
         |   ├── es.json
+        |   ├── fi.json
         |   ├── fr.json
         |   ├── it.json
         |   ├── ja.json
         |   ├── ko.json
+        |   ├── nb.json
         |   ├── nl.json
         |   ├── pl.json
         |   ├── pt.json
+        |   ├── ro.json
         |   ├── ru.json
+        |   ├── sv.json
         |   ├── tr.json
-        |   └── zh-Hans.json
+        |   ├── zh-Hans.json
+        |   └── zh-Hant.json
         ├── __init__.py
         ├── binary_sensor.py
         ├── config_flow.py
@@ -399,6 +407,13 @@ The integration supports multiple languages:
 - 🇷🇺 Russian
 - 🇹🇷 Turkish
 - 🇨🇳 Chinese (Simplified)
+- 🇹🇼 Chinese (Traditional)
+- 🇳🇴 Norwegian
+- 🇸🇪 Swedish
+- 🇩🇰 Danish
+- 🇫🇮 Finnish
+- 🇬🇷 Greek
+- 🇷🇴 Romanian
 
 ## 🤝 Contribution and Development
 
@@ -441,12 +456,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📈 Changelog
 
-### Version 2.0.0 (Latest)
+### Version 2.1.0 (Latest)
+- ✨ **New**: Extended language support (7 additional languages)
+  - Chinese (Traditional), Norwegian, Swedish, Danish, Finnish, Greek, and Romanian
+- 🌍 **Enhanced**: Multi-language support now covers 20 languages
+
+### Version 2.0.0
 - ✨ **New**: Binary sensors for activity and goal tracking
 - ✨ **New**: Advanced configuration options
 - ✨ **New**: Custom services for manual control
 - ✨ **New**: Smart caching and error recovery
-- ✨ **New**: Multi-language support
+- ✨ **New**: Multi-language support (13 languages)
 - 🔧 **Improved**: Robust API client with retry logic
 - 🔧 **Improved**: Better error handling and diagnostics
 - 🔧 **Enhanced**: Rich entity attributes and status indicators

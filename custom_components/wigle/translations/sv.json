@@ -1,0 +1,93 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi-nätverksstatistik",
+        "description": "Ange dina Wigle.net-uppgifter för att komma åt dina WiFi-nätverksstatistik.",
+        "data": {
+          "username": "Användarnamn",
+          "api_name": "API-namn (AID...)",
+          "api_token": "API-token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kunde inte ansluta till Wigle API",
+      "invalid_auth": "Ogiltiga autentiseringsuppgifter",
+      "unknown": "Ett oväntat fel uppstod"
+    },
+    "abort": {
+      "already_configured": "Kontot är redan konfigurerat"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Alternativ för Wigle WiFi-nätverksstatistik",
+        "description": "Konfigurera alternativ för din Wigle-integration.",
+        "data": {
+          "update_interval": "Uppdateringsintervall (minuter)",
+          "rank_goal": "Rankningsmål (0 = inaktiverat)",
+          "enabled_sensors": "Aktiverade sensorer",
+          "notifications_enabled": "Aktivera aviseringar",
+          "notification_rank_threshold": "Tröskel för rankningsändring för aviseringar",
+          "monthly_rank_goal": "Månatligt rankningsmål (0 = inaktiverat)"
+        },
+        "data_description": {
+          "update_interval": "Hur ofta data ska uppdateras (30–1440 minuter)",
+          "rank_goal": "Mål för global rankning att uppnå (0 för att inaktivera)",
+          "enabled_sensors": "Välj vilka sensorer som ska aktiveras",
+          "notifications_enabled": "Få aviseringar vid betydande rankningsändringar",
+          "notification_rank_threshold": "Minsta rankningsförbättring för att utlösa avisering",
+          "monthly_rank_goal": "Månatligt mål för rankning att uppnå"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "Rank" },
+      "month_rank": { "name": "Månatlig rank" },
+      "discovered_wifi_gps": { "name": "WiFi-nätverk med GPS" },
+      "discovered_wifi": { "name": "Upptäckta WiFi-nätverk" },
+      "discovered_cell_gps": { "name": "Mobilmaster med GPS" },
+      "discovered_cell": { "name": "Upptäckta mobilmaster" },
+      "discovered_bt_gps": { "name": "Bluetooth-enheter med GPS" },
+      "discovered_bt": { "name": "Upptäckta Bluetooth-enheter" },
+      "total_wifi_locations": { "name": "Totalt antal WiFi-platser" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Aktiv denna månad" },
+      "active_this_week": { "name": "Aktiv denna vecka" },
+      "rank_improved": { "name": "Rank förbättrad" },
+      "goal_reached": { "name": "Mål nått" },
+      "top_performer": { "name": "Toppresterare" },
+      "monthly_goal_on_track": { "name": "Månatligt mål på rätt spår" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Tvinga uppdatering",
+      "description": "Tvinga en omedelbar uppdatering av Wigle-data",
+      "fields": {
+        "username": { "name": "Användarnamn", "description": "Wigle-användarnamn att uppdatera" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Sätt rankningsmål",
+      "description": "Ställ in rankningsmål för en Wigle-användare",
+      "fields": {
+        "username": { "name": "Användarnamn", "description": "Wigle-användarnamn" },
+        "goal": { "name": "Rankningsmål", "description": "Mål för global rankning" },
+        "monthly_goal": { "name": "Månatligt rankningsmål", "description": "Månatligt mål (valfritt)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Återställ statistik",
+      "description": "Återställ cachelagrad statistik och tvinga ny datahämtning",
+      "fields": {
+        "username": { "name": "Användarnamn", "description": "Wigle-användarnamn att återställa" }
+      }
+    }
+  }
+}
