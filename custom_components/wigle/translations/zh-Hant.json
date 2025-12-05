@@ -1,0 +1,108 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi 網路統計",
+        "description": "輸入你的 Wigle.net 憑證以存取你的 WiFi 網路統計資料。",
+        "data": {
+          "username": "使用者名稱",
+          "api_name": "API 名稱 (AID...)",
+          "api_token": "API 令牌"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "無法連接到 Wigle API",
+      "invalid_auth": "無效的驗證憑證",
+      "unknown": "發生未預期的錯誤"
+    },
+    "abort": {
+      "already_configured": "帳戶已設定"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi 網路統計 選項",
+        "description": "配置你的 Wigle 整合選項。",
+        "data": {
+          "update_interval": "更新間隔（分鐘）",
+          "rank_goal": "排名目標（0 = 停用）",
+          "enabled_sensors": "已啟用的感測器",
+          "notifications_enabled": "啟用通知",
+          "notification_rank_threshold": "通知的排名變動門檻",
+          "monthly_rank_goal": "每月排名目標（0 = 停用）"
+        },
+        "data_description": {
+          "update_interval": "資料更新頻率（30–1440 分鐘）",
+          "rank_goal": "要達成的全域排名目標（設 0 停用）",
+          "enabled_sensors": "選擇要啟用的感測器",
+          "notifications_enabled": "在排名發生重大變動時接收通知",
+          "notification_rank_threshold": "觸發通知的最小排名改善值",
+          "monthly_rank_goal": "要達成的每月排名目標"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "排名" },
+      "month_rank": { "name": "每月排名" },
+      "discovered_wifi_gps": { "name": "具有 GPS 的 WiFi 網路" },
+      "discovered_wifi": { "name": "已發現的 WiFi 網路" },
+      "discovered_cell_gps": { "name": "具有 GPS 的行動基地台" },
+      "discovered_cell": { "name": "已發現的行動基地台" },
+      "discovered_bt_gps": { "name": "具有 GPS 的藍牙裝置" },
+      "discovered_bt": { "name": "已發現的藍牙裝置" },
+      "total_wifi_locations": { "name": "WiFi 地點總數" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "本月有活動" },
+      "active_this_week": { "name": "本週有活動" },
+      "rank_improved": { "name": "排名已提升" },
+      "goal_reached": { "name": "已達目標" },
+      "top_performer": { "name": "最佳表現者" },
+      "monthly_goal_on_track": { "name": "每月目標進度正常" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "強制更新",
+      "description": "強制立即更新 Wigle 資料",
+      "fields": {
+        "username": {
+          "name": "使用者名稱",
+          "description": "要更新的 Wigle 使用者名稱"
+        }
+      }
+    },
+    "set_rank_goal": {
+      "name": "設定排名目標",
+      "description": "為 Wigle 使用者設定排名目標",
+      "fields": {
+        "username": {
+          "name": "使用者名稱",
+          "description": "Wigle 使用者名稱"
+        },
+        "goal": {
+          "name": "排名目標",
+          "description": "目標全域排名"
+        },
+        "monthly_goal": {
+          "name": "每月排名目標",
+          "description": "目標每月排名（可選）"
+        }
+      }
+    },
+    "reset_statistics": {
+      "name": "重置統計",
+      "description": "重置快取的統計並強制重新擷取資料",
+      "fields": {
+        "username": {
+          "name": "使用者名稱",
+          "description": "要重置的 Wigle 使用者名稱"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Στατιστικά δικτύων WiFi Wigle",
+        "description": "Εισάγετε τα διαπιστευτήρια Wigle.net για πρόσβαση στα στατιστικά των WiFi δικτύων σας.",
+        "data": {
+          "username": "Όνομα χρήστη",
+          "api_name": "Όνομα API (AID...)",
+          "api_token": "API token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Αποτυχία σύνδεσης στο Wigle API",
+      "invalid_auth": "Μη έγκυρα στοιχεία πιστοποίησης",
+      "unknown": "Παρουσιάστηκε απρόβλεπτο σφάλμα"
+    },
+    "abort": {
+      "already_configured": "Ο λογαριασμός έχει ήδη ρυθμιστεί"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Επιλογές στατιστικών δικτύων WiFi Wigle",
+        "description": "Διαμορφώστε τις επιλογές για την ενσωμάτωση Wigle.",
+        "data": {
+          "update_interval": "Διάστημα ενημέρωσης (λεπτά)",
+          "rank_goal": "Στόχος κατάταξης (0 = απενεργοποιημένο)",
+          "enabled_sensors": "Ενεργοποιημένοι αισθητήρες",
+          "notifications_enabled": "Ενεργοποίηση ειδοποιήσεων",
+          "notification_rank_threshold": "Κατώφλι αλλαγής κατάταξης για ειδοποιήσεις",
+          "monthly_rank_goal": "Μηνιαίος στόχος κατάταξης (0 = απενεργοποιημένο)"
+        },
+        "data_description": {
+          "update_interval": "Πόσο συχνά να ενημερώνονται τα δεδομένα (30–1440 λεπτά)",
+          "rank_goal": "Στόχος για την παγκόσμια κατάταξη (0 για απενεργοποίηση)",
+          "enabled_sensors": "Επιλέξτε ποιους αισθητήρες να ενεργοποιήσετε",
+          "notifications_enabled": "Λάβετε ειδοποιήσεις για σημαντικές αλλαγές κατάταξης",
+          "notification_rank_threshold": "Ελάχιστη βελτίωση κατάταξης για ενεργοποίηση ειδοποίησης",
+          "monthly_rank_goal": "Στόχος μηνιαίας κατάταξης προς επίτευξη"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "Κατάταξη" },
+      "month_rank": { "name": "Μηνιαία κατάταξη" },
+      "discovered_wifi_gps": { "name": "Δίκτυα WiFi με GPS" },
+      "discovered_wifi": { "name": "Ανακαλυφθέντα WiFi δίκτυα" },
+      "discovered_cell_gps": { "name": "Κεραίες κινητής με GPS" },
+      "discovered_cell": { "name": "Ανακαλυφθέντες σταθμοί κινητής" },
+      "discovered_bt_gps": { "name": "Συσκευές Bluetooth με GPS" },
+      "discovered_bt": { "name": "Ανακαλυφθείσες συσκευές Bluetooth" },
+      "total_wifi_locations": { "name": "Συνολικές τοποθεσίες WiFi" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Ενεργός αυτόν τον μήνα" },
+      "active_this_week": { "name": "Ενεργός αυτήν την εβδομάδα" },
+      "rank_improved": { "name": "Η κατάταξη βελτιώθηκε" },
+      "goal_reached": { "name": "Στόχος επιτεύχθηκε" },
+      "top_performer": { "name": "Κορυφαία απόδοση" },
+      "monthly_goal_on_track": { "name": "Μηνιαίος στόχος σε προγραμματισμό" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Εξαναγκασμένη ενημέρωση",
+      "description": "Εξαναγκάστε άμεση ενημέρωση των Wigle δεδομένων",
+      "fields": {
+        "username": { "name": "Όνομα χρήστη", "description": "Wigle όνομα χρήστη για ενημέρωση" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Ορισμός στόχου κατάταξης",
+      "description": "Ορίστε στόχους κατάταξης για έναν χρήστη Wigle",
+      "fields": {
+        "username": { "name": "Όνομα χρήστη", "description": "Wigle όνομα χρήστη" },
+        "goal": { "name": "Στόχος κατάταξης", "description": "Στόχος παγκόσμιας κατάταξης" },
+        "monthly_goal": { "name": "Μηνιαίος στόχος", "description": "Στόχος μηνιαίας κατάταξης (προαιρετικό)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Επαναφορά στατιστικών",
+      "description": "Επαναφέρετε προσωρινά αποθηκευμένα στατιστικά και εξαναγκάστε ανάκτηση νέων δεδομένων",
+      "fields": {
+        "username": { "name": "Όνομα χρήστη", "description": "Wigle όνομα χρήστη για επαναφορά" }
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi-verkkotilastot",
+        "description": "Anna Wigle.net-tunnuksesi päästäksesi WiFi-verkkotilastoihin.",
+        "data": {
+          "username": "Käyttäjänimi",
+          "api_name": "API-nimi (AID...)",
+          "api_token": "API-tunniste"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Yhteyttä Wigle API:in ei voitu muodostaa",
+      "invalid_auth": "Virheelliset tunnistetiedot",
+      "unknown": "Tapahtui odottamaton virhe"
+    },
+    "abort": {
+      "already_configured": "Tili on jo määritetty"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi-verkkotilastojen asetukset",
+        "description": "Määritä Wigle-integraation asetukset.",
+        "data": {
+          "update_interval": "Päivitysväli (minuuttia)",
+          "rank_goal": "Sijoitustavoite (0 = pois käytöstä)",
+          "enabled_sensors": "Käytössä olevat anturit",
+          "notifications_enabled": "Ota ilmoitukset käyttöön",
+          "notification_rank_threshold": "Ilmoitusten sijoitusmuutoksen kynnys",
+          "monthly_rank_goal": "Kuukausittainen sijoitustavoite (0 = pois käytöstä)"
+        },
+        "data_description": {
+          "update_interval": "Kuinka usein päivitetään (30–1440 minuuttia)",
+          "rank_goal": "Tavoiteltava maailmanlaajuinen sijoitus (0 poistaa käytöstä)",
+          "enabled_sensors": "Valitse mitkä anturit otetaan käyttöön",
+          "notifications_enabled": "Saa ilmoituksia merkittävistä sijoitusmuutoksista",
+          "notification_rank_threshold": "Pienin sijoitusparannus ilmoituksen laukaisemiseksi",
+          "monthly_rank_goal": "Tavoiteltava kuukausittainen sijoitus"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": { "name": "Sijoitus" },
+      "month_rank": { "name": "Kuukausisijoitus" },
+      "discovered_wifi_gps": { "name": "GPS:llä varustetut WiFi-verkot" },
+      "discovered_wifi": { "name": "Löydetyt WiFi-verkot" },
+      "discovered_cell_gps": { "name": "GPS:llä varustetut tukiasemat" },
+      "discovered_cell": { "name": "Löydetyt tukiasemat" },
+      "discovered_bt_gps": { "name": "GPS:llä varustetut Bluetooth-laitteet" },
+      "discovered_bt": { "name": "Löydetyt Bluetooth-laitteet" },
+      "total_wifi_locations": { "name": "WiFi-sijaintien kokonaismäärä" }
+    },
+    "binary_sensor": {
+      "active_this_month": { "name": "Aktiivinen tässä kuussa" },
+      "active_this_week": { "name": "Aktiivinen tällä viikolla" },
+      "rank_improved": { "name": "Sijoitus parantunut" },
+      "goal_reached": { "name": "Tavoite saavutettu" },
+      "top_performer": { "name": "Parhaat suoriutujat" },
+      "monthly_goal_on_track": { "name": "Kuukausitavoite raiteilla" }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Pakota päivitys",
+      "description": "Pakota välitön Wigle-datan päivitys",
+      "fields": {
+        "username": { "name": "Käyttäjänimi", "description": "Päivitä tämä Wigle-käyttäjänimi" }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Aseta sijoitustavoite",
+      "description": "Aseta sijoitustavoitteet Wigle-käyttäjälle",
+      "fields": {
+        "username": { "name": "Käyttäjänimi", "description": "Wigle-käyttäjänimi" },
+        "goal": { "name": "Sijoitustavoite", "description": "Tavoiteltava maailmanlaajuinen sijoitus" },
+        "monthly_goal": { "name": "Kuukausittainen tavoite", "description": "Tavoiteltava kuukausisijoitus (valinnainen)" }
+      }
+    },
+    "reset_statistics": {
+      "name": "Nollaa tilastot",
+      "description": "Nollaa välimuistissa olevat tilastot ja pakota uusien tietojen haku",
+      "fields": {
+        "username": { "name": "Käyttäjänimi", "description": "Wigle-käyttäjänimi nollattavaksi" }
+      }
+    }
+  }
+}
