@@ -4,10 +4,10 @@
   "codeowners": ["@malicaeus"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/malicaeus/Wigle-Stats-HACS",
+  "documentation": "https://github.com/malicaeus/Wigle-Stats-HA",
   "integration_type": "service",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/malicaeus/Wigle-Stats-HACS/issues",
+  "issue_tracker": "https://github.com/malicaeus/Wigle-Stats-HA/issues",
   "requirements": ["aiohttp>=3.8.0"],
-  "version": "2.1.0"
+  "version": "2.1.1"
 }

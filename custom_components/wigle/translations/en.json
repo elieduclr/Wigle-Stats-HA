@@ -1,0 +1,138 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Wigle WiFi Network Statistics",
+        "description": "Enter your Wigle.net credentials to access your WiFi network statistics.",
+        "data": {
+          "username": "Username",
+          "api_name": "API Name (AID...)",
+          "api_token": "API Token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Wigle API",
+      "invalid_auth": "Invalid authentication credentials",
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "Account is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Wigle WiFi Network Statistics Options",
+        "description": "Configure options for your Wigle integration.",
+        "data": {
+          "update_interval": "Update interval (minutes)",
+          "rank_goal": "Rank goal (0 = disabled)",
+          "enabled_sensors": "Enabled sensors",
+          "notifications_enabled": "Enable notifications",
+          "notification_rank_threshold": "Rank change threshold for notifications",
+          "monthly_rank_goal": "Monthly rank goal (0 = disabled)"
+        },
+        "data_description": {
+          "update_interval": "How often to update data (30-1440 minutes)",
+          "rank_goal": "Target global rank to achieve (0 to disable)",
+          "enabled_sensors": "Select which sensors to enable",
+          "notifications_enabled": "Get notified of significant rank changes",
+          "notification_rank_threshold": "Minimum rank improvement to trigger notification",
+          "monthly_rank_goal": "Target monthly rank to achieve"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "rank": {
+        "name": "Rank"
+      },
+      "month_rank": {
+        "name": "Monthly Rank"
+      },
+      "discovered_wifi_gps": {
+        "name": "WiFi Networks with GPS"
+      },
+      "discovered_wifi": {
+        "name": "WiFi Networks Discovered"
+      },
+      "discovered_cell_gps": {
+        "name": "Cell Towers with GPS"
+      },
+      "discovered_cell": {
+        "name": "Cell Towers Discovered"
+      },
+      "discovered_bt_gps": {
+        "name": "Bluetooth Devices with GPS"
+      },
+      "discovered_bt": {
+        "name": "Bluetooth Devices Discovered"
+      },
+      "total_wifi_locations": {
+        "name": "Total WiFi Locations"
+      }
+    },
+    "binary_sensor": {
+      "active_this_month": {
+        "name": "Active This Month"
+      },
+      "active_this_week": {
+        "name": "Active This Week"
+      },
+      "rank_improved": {
+        "name": "Rank Improved"
+      },
+      "goal_reached": {
+        "name": "Goal Reached"
+      },
+      "top_performer": {
+        "name": "Top Performer"
+      },
+      "monthly_goal_on_track": {
+        "name": "Monthly Goal On Track"
+      }
+    }
+  },
+  "services": {
+    "force_update": {
+      "name": "Force Update",
+      "description": "Force an immediate update of Wigle data",
+      "fields": {
+        "username": {
+          "name": "Username",
+          "description": "Wigle username to update"
+        }
+      }
+    },
+    "set_rank_goal": {
+      "name": "Set Rank Goal",
+      "description": "Set rank goals for a Wigle user",
+      "fields": {
+        "username": {
+          "name": "Username",
+          "description": "Wigle username"
+        },
+        "goal": {
+          "name": "Rank Goal",
+          "description": "Target global rank"
+        },
+        "monthly_goal": {
+          "name": "Monthly Rank Goal",
+          "description": "Target monthly rank (optional)"
+        }
+      }
+    },
+    "reset_statistics": {
+      "name": "Reset Statistics",
+      "description": "Reset cached statistics and force fresh data retrieval",
+      "fields": {
+        "username": {
+          "name": "Username",
+          "description": "Wigle username to reset"
+        }
+      }
+    }
+  }
+}

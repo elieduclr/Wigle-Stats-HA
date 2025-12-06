@@ -456,7 +456,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📈 Changelog
 
-### Version 2.1.0 (Latest)
+### Version 2.1.1 (Latest)
+- 🔧 **Fix** : [Issue 4](https://github.com/malicaeus/Wigle-Stats-HA/issues/4)
+
+### Version 2.1.0
 - ✨ **New**: Extended language support (7 additional languages)
   - Chinese (Traditional), Norwegian, Swedish, Danish, Finnish, Greek, and Romanian
 - 🌍 **Enhanced**: Multi-language support now covers 20 languages
