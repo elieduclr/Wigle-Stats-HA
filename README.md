@@ -456,10 +456,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📈 Changelog
 
+### Version 2.2.1 (Release)
+- 🔧 **Fix**: Corrected an IndentationError in `custom_components/wigle/sensor.py` that caused `hassfest` AST/Indentation parse failures and Home Assistant import errors. This fix repairs a malformed sensor mapping produced during earlier edits.
+- 🧰 **Note**: After upgrading, remove `custom_components/wigle/__pycache__` and restart Home Assistant to ensure the corrected module is loaded.
+
 ### Version 2.2.0 (Development)
-- ✨ **New**: Complete type hints for all Python modules
-- ✨ **New**: Comprehensive docstrings for all classes and methods
-- 🔧 **Improved**: Code maintainability and IDE support
+ - ✨ **New**: Complete type hints for all Python modules
+ - ✨ **New**: Comprehensive docstrings for all classes and methods
+ - 🔧 **Improved**: Code maintainability and IDE support
 
 ### Version 2.1.1 (Latest Stable)
 - 🔧 **Fix**: [Issue 4](https://github.com/malicaeus/Wigle-Stats-HA/issues/4) - Fixed error handling in specific edge cases

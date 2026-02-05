@@ -456,10 +456,14 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 
 ## 📈 Journal des modifications
 
+### Version 2.2.1 (Release)
+- 🔧 **Correction** : Correction d'une erreur d'indentation dans `custom_components/wigle/sensor.py` provoquant des échecs de validation (`hassfest`) et une ImportError dans Home Assistant. Le problème venait d'un bloc malformé introduit lors d'éditions massives précédentes.
+- 🧰 **Remarque** : Après la mise à jour, supprimez `custom_components/wigle/__pycache__` et redémarrez Home Assistant pour charger le module corrigé.
+
 ### Version 2.2.0 (Développement)
-- ✨ **Nouveau** : Type hints complets pour tous les modules Python
-- ✨ **Nouveau** : Docstrings complètes pour toutes les classes et méthodes
-- 🔧 **Amélioré** : Maintenabilité du code et support des IDE
+ - ✨ **Nouveau** : Type hints complets pour tous les modules Python
+ - ✨ **Nouveau** : Docstrings complètes pour toutes les classes et méthodes
+ - 🔧 **Amélioré** : Maintenabilité du code et support des IDE
 
 ### Version 2.1.1 (Stable actuelle)
 - 🔧 **Fixe** : [Issue 4](https://github.com/malicaeus/Wigle-Stats-HA/issues/4) - Correction de la gestion des erreurs dans certains cas limites

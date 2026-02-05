@@ -1,12 +1,12 @@
 # Version Information - Wigle WiFi Network Statistics Integration
 
-## Current Version: 2.2.0
+## Current Version: 2.2.1
 
 ### Version Details
 
 ```json
 {
-  "version": "2.2.0",
+  "version": "2.2.1",
   "release_date": "2026-02-05",
   "stability": "stable",
   "homeassistant_minimum": "2023.1.0",
@@ -16,21 +16,30 @@
 
 ## Version History
 
-### 2.2.0 (Latest Stable)
+### 2.2.1 (Release)
 **Status**: ✅ Stable
 **Release Date**: 2026-02-05
-**Focus**: Code Quality
+**Focus**: Bug fixes & stability
 
-**New Features:**
-- ✅ Complete type hints for all Python modules (coverage: 100%)
-- ✅ Comprehensive docstrings following PEP 257 standard
+**Fixes:**
+- 🔧 Corrected an IndentationError in `custom_components/wigle/sensor.py` that caused static validation (`hassfest`) and Home Assistant import failures. The issue was introduced during prior mass edits and produced a malformed block inside the sensor mapping.
 
-**Improvements:**
-- ✅ Code maintainability index: +35%
-- ✅ IDE autocompletion support (Pylance/PyRight)
-- ✅ Inline documentation for complex logic
+**Notes for users/operators:**
+- 🧰 After updating to 2.2.1, please remove any cached bytecode and restart Home Assistant to ensure the corrected module is loaded:
 
-**Breaking Changes:** None
+```powershell
+Remove-Item -Recurse -Force .\custom_components\wigle\__pycache__
+# then restart Home Assistant (or the host/container)
+```
+
+- 🔎 If you run `hassfest`, it should no longer report the AST/IndentationError for `custom_components/wigle/sensor.py`.
+
+---
+
+### 2.2.0 (Development)
+- ✨ **New**: Complete type hints for all Python modules
+- ✨ **New**: Comprehensive docstrings for all classes and methods
+- 🔧 **Improved**: Code maintainability and IDE support
 
 ---
 
