@@ -1,7 +1,7 @@
 # 📡 Intégration Wigle WiFi Network Statistics pour Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![GitHub release](https://img.shields.io/github/release/malicaeus/Wigle-Stats-HACS.svg)](https://github.com/malicaeus/Wigle-Stats-HACS/releases)
+[![GitHub release](https://img.shields.io/github/release/malicaeus/Wigle-Stats-HA.svg)](https://github.com/malicaeus/Wigle-Stats-HA/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![English](https://img.shields.io/badge/README-English-blue?style=for-the-badge)](https://github.com/malicaeus/Wigle-Stats-HA/blob/main/README.md)
@@ -429,7 +429,7 @@ Vous souhaitez contribuer ? C'est fantastique ! 🎉
 
 ### 🐛 Signaler un bug
 
-Utilisez les [GitHub Issues](https://github.com/malicaeus/Wigle-Stats-HACS/issues) avec :
+Utilisez les [GitHub Issues](https://github.com/malicaeus/Wigle-Stats-HA/issues) avec :
 - ✅ Version de Home Assistant
 - ✅ Version de l'intégration
 - ✅ Logs d'erreur complets (avec debug activé)
