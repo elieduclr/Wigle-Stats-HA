@@ -1,10 +1,10 @@
 # 📡 Intégration Wigle WiFi Network Statistics pour Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![GitHub release](https://img.shields.io/github/release/elieduclr/Wigle-Stats-HACS.svg)](https://github.com/elieduclr/Wigle-Stats-HACS/releases)
+[![GitHub release](https://img.shields.io/github/release/malicaeus/Wigle-Stats-HACS.svg)](https://github.com/malicaeus/Wigle-Stats-HACS/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![English](https://img.shields.io/badge/README-English-blue?style=for-the-badge)](https://github.com/elieduclr/Wigle-Stats-HA/blob/main/README.md)
+[![English](https://img.shields.io/badge/README-English-blue?style=for-the-badge)](https://github.com/malicaeus/Wigle-Stats-HA/blob/main/README.md)
 
 Une intégration complète pour Home Assistant permettant de récupérer les statistiques de découverte WiFi, Bluetooth et cellulaire de votre compte [Wigle.net](https://wigle.net) avec des fonctionnalités avancées et une surveillance intelligente 🌐
 
@@ -46,7 +46,7 @@ Cette intégration vous permet de suivre vos performances de wardriving directem
 #### 🔧 Étapes d'installation HACS
 
 1. **📁 Ajouter l'intégration personnalisée :**
-   - [![Ouvrir votre instance Home Assistant et ouvrir un dépôt dans le Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=elieduclr&repository=Wigle-Stats-HA&category=integration)
+   - [![Ouvrir votre instance Home Assistant et ouvrir un dépôt dans le Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=malicaeus&repository=Wigle-Stats-HA&category=integration)
 
 2. **💾 Installer l'intégration :**
    - Cliquer sur `TÉLÉCHARGER`
@@ -429,7 +429,7 @@ Vous souhaitez contribuer ? C'est fantastique ! 🎉
 
 ### 🐛 Signaler un bug
 
-Utilisez les [GitHub Issues](https://github.com/elieduclr/Wigle-Stats-HACS/issues) avec :
+Utilisez les [GitHub Issues](https://github.com/malicaeus/Wigle-Stats-HACS/issues) avec :
 - ✅ Version de Home Assistant
 - ✅ Version de l'intégration
 - ✅ Logs d'erreur complets (avec debug activé)
@@ -456,28 +456,69 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 
 ## 📈 Journal des modifications
 
-### Vercion 2.1.1 (Dernière)
-- 🔧 **Fixe** : [Issue 4](https://github.com/malicaeus/Wigle-Stats-HA/issues/4)
+### Version 2.2.0 (Développement)
+- ✨ **Nouveau** : Type hints complets pour tous les modules Python
+- ✨ **Nouveau** : Docstrings complètes pour toutes les classes et méthodes
+- ✨ **Nouveau** : Gestion des erreurs API améliorée avec types d'exception spécifiques
+- 🔧 **Amélioré** : Maintenabilité du code et support des IDE
+- 🔧 **Amélioré** : Meilleure documentation en ligne pour les développeurs
+
+### Version 2.1.1 (Stable actuelle)
+- 🔧 **Fixe** : [Issue 4](https://github.com/malicaeus/Wigle-Stats-HA/issues/4) - Correction de la gestion des erreurs dans certains cas limites
+- 🔧 **Amélioré** : Améliorations de stabilité dans la mise en cache des données
+- 🔧 **Amélioré** : Journalisation des erreurs renforcée pour le dépannage
 
 ### Version 2.1.0
 - ✨ **Nouveau** : Support linguistique étendu (7 langues supplémentaires)
-  - Chinois (Traditionnel), Norvégien, Suédois, Danois, Finnois, Grec et Roumain
+  - 🇨🇳 Chinois (Traditionnel), 🇳🇴 Norvégien, 🇸🇪 Suédois
+  - 🇩🇰 Danois, 🇫🇮 Finnois, 🇬🇷 Grec, 🇷🇴 Roumain
 - 🌍 **Enrichi** : Support multi-langues couvrant désormais 20 langues
+- 🔧 **Amélioré** : Gestion des clés de traduction
 
 ### Version 2.0.0
 - ✨ **Nouveau** : Capteurs binaires pour le suivi d'activité et d'objectifs
+  - Indicateurs d'activité mensuelle/hebdomadaire
+  - Détection d'amélioration de rang
+  - Suivi de réalisation d'objectifs
+  - Statut de top performer
+  - Progression des objectifs mensuels
 - ✨ **Nouveau** : Options de configuration avancées
+  - Intervalles de mise à jour personnalisables
+  - Définition et suivi des objectifs de rang
+  - Sélection et filtrage des capteurs
+  - Configuration du seuil de notification
 - ✨ **Nouveau** : Services personnalisés pour le contrôle manuel
+  - `wigle.force_update` - Actualisation immédiate des données
+  - `wigle.set_rank_goal` - Mise à jour des objectifs de classement
+  - `wigle.reset_statistics` - Effacement du cache et rechargement
 - ✨ **Nouveau** : Cache intelligent et récupération d'erreur
+  - Retry automatique avec backoff exponentiel
+  - Persistance des dernières données connues
+  - Dégradation gracieuse en cas d'erreur API
 - ✨ **Nouveau** : Support multi-langues (13 langues)
+  - Anglais, Français, Allemand, Espagnol, Italien, Japonais, Coréen
+  - Néerlandais, Polonais, Portugais, Russe, Turc, Chinois (Simplifié)
 - 🔧 **Amélioré** : Client API robuste avec logique de retry
+  - Gestion des limites de taux
+  - Détection des erreurs d'authentification
+  - Gestion des timeouts de connexion
+  - Backoff exponentiel en cas d'échec
 - 🔧 **Amélioré** : Meilleure gestion d'erreur et diagnostics
+  - Journalisation détaillée des erreurs
+  - Support du mode débogage
+  - Suivi des erreurs consécutives
 - 🔧 **Enrichi** : Attributs d'entité riches et indicateurs de statut
+  - Suivi des rangs précédents
+  - Calculs de changement de rang
+  - Suivi des dates d'activité
+  - Distance à l'objectif
+  - Métriques de performance
 
 ### Version 1.x.x
-- 📊 Support des capteurs de base
-- 🔐 Authentification API
+- 📊 Support des capteurs de base pour les statistiques WiFi, cellulaires et Bluetooth
+- 🔐 Authentification API avec gestion des credentials
 - 📈 Suivi des rangs et statistiques
+- 🌐 Intégration initiale à Home Assistant
 
 ---
 

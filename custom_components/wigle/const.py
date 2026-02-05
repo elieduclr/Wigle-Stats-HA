@@ -1,18 +1,27 @@
-"""Constants for the Wigle WiFi Network Statistics integration."""
+"""Constants for the Wigle WiFi Network Statistics integration.
 
-DOMAIN = "wigle"
+This module contains all constant values used throughout the Wigle integration,
+including configuration keys, API endpoints, and sensor type definitions.
+"""
 
-# Configuration
-CONF_API_NAME = "api_name"
-CONF_API_TOKEN = "api_token"
+# Integration domain identifier
+DOMAIN: str = "wigle"
 
-# API Constants
-WIGLE_API_BASE = "https://api.wigle.net/api/v2"
-WIGLE_USER_STATS_ENDPOINT = "/stats/user"
-WIGLE_PROFILE_ENDPOINT = "/profile/user"
+# Configuration schema keys
+CONF_API_NAME: str = "api_name"
+CONF_API_TOKEN: str = "api_token"
+
+# API Configuration and Endpoints
+WIGLE_API_BASE: str = "https://api.wigle.net/api/v2"
+WIGLE_USER_STATS_ENDPOINT: str = "/stats/user"
+WIGLE_PROFILE_ENDPOINT: str = "/profile/user"
+
+# API Rate limiting
+MAX_REQUESTS_PER_HOUR: int = 100
+REQUEST_TIMEOUT_SECONDS: int = 30
 
 # Sensor Types - Keys will be translated via strings.json
-SENSOR_TYPES = {
+SENSOR_TYPES: dict[str, dict[str, str | None]] = {
     "rank": {
         "translation_key": "rank",
         "icon": "mdi:trophy",
