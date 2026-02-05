@@ -1,13 +1,13 @@
 # Version Information - Wigle WiFi Network Statistics Integration
 
-## Current Version: 2.1.1
+## Current Version: 2.2.0
 
 ### Version Details
 
 ```json
 {
-  "version": "2.1.1",
-  "release_date": "2025-XX-XX",
+  "version": "2.2.0",
+  "release_date": "2026-02-05",
   "stability": "stable",
   "homeassistant_minimum": "2023.1.0",
   "hacs_minimum": "1.6.0"
@@ -16,9 +16,9 @@
 
 ## Version History
 
-### 2.2.0 (Development - In Progress)
-**Status**: 🔄 Development  
-**Target**: Q1 2026  
+### 2.2.0 (Latest Stable)
+**Status**: ✅ Stable
+**Release Date**: 2026-02-05
 **Focus**: Code Quality
 
 **New Features:**
@@ -29,13 +29,12 @@
 - ✅ Code maintainability index: +35%
 - ✅ IDE autocompletion support (Pylance/PyRight)
 - ✅ Inline documentation for complex logic
-- ✅ Better error context in logging
 
 **Breaking Changes:** None
 
 ---
 
-### 2.1.1 (Latest Stable) ⭐
+### 2.1.1 (Stable) ⭐
 **Status**: ✅ Stable  
 **Release Date**: 2025-10-15  
 **Focus**: Bug Fixes & Stability
