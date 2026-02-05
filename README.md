@@ -459,9 +459,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### Version 2.2.0 (Development)
 - ✨ **New**: Complete type hints for all Python modules
 - ✨ **New**: Comprehensive docstrings for all classes and methods
-- ✨ **New**: Improved API error handling with specific exception types
 - 🔧 **Improved**: Code maintainability and IDE support
-- 🔧 **Improved**: Better inline documentation for developers
 
 ### Version 2.1.1 (Latest Stable)
 - 🔧 **Fix**: [Issue 4](https://github.com/malicaeus/Wigle-Stats-HA/issues/4) - Fixed error handling in specific edge cases
